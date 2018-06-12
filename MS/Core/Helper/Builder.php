@@ -48,7 +48,13 @@ class Builder{
 			$formdata=$base::genFormData(true,$data,$id);			
 			//dd($formdata);
 		}else{
-			$formdata=$base::genFormData(false,$data,$id);	
+
+			if($id){
+				$formdata=$base::genFormData(false,$data,$id);	
+			}else{
+				$formdata=$base::genFormData(false,$data);	
+			}
+			
 		}
 
 
@@ -196,6 +202,13 @@ class Builder{
 
 		$this->content.="</table>";
 		$this->content.="</div>";
+		return $this;
+
+	}
+
+
+	public function note($text){
+		$this->content.='<div class="alert alert-warning" role="alert">'.$text.'</div>';
 		return $this;
 
 	}

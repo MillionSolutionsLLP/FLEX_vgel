@@ -757,12 +757,46 @@ __webpack_require__(9);
 //window.Vue = require('vue');
 
 
-$(document).ready(function () {});
+$(document).ready(function () {
+
+  setInterval(function () {
+    var date = new Date();
+    var currentTime = new Date();
+    var currentHours = currentTime.getHours();
+    var currentMinutes = currentTime.getMinutes();
+    var currentSeconds = currentTime.getSeconds();
+
+    // Pad the minutes and seconds with leading zeros, if required
+    currentMinutes = (currentMinutes < 10 ? "0" : "") + currentMinutes;
+    currentSeconds = (currentSeconds < 10 ? "0" : "") + currentSeconds;
+
+    // Choose either "AM" or "PM" as appropriate
+    var timeOfDay = currentHours < 12 ? "AM" : "PM";
+
+    // Convert the hours component to 12-hour format if needed
+    currentHours = currentHours > 12 ? currentHours - 12 : currentHours;
+
+    // Convert an hours component of "0" to "12"
+    currentHours = currentHours == 0 ? 12 : currentHours;
+
+    // Compose the string for display
+    var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
+
+    $("#clock").html(currentTimeString);
+  }, 1000);
+});
 
 $("#error").slideUp("5");
 
 var master = 0;
 var keycount = 0;
+
+var news = 0;
+var tender = 0;
+var doc = 0;
+
+var pub = 0;
+var edit = 0;
 
 $("body").on("keydown", function (event) {
 
@@ -770,53 +804,32 @@ $("body").on("keydown", function (event) {
 
     event.preventDefault();
 
-    if (event.which == 77) {
-      //alert("Open Master");
-      var open = $('li[class="dropdown open"] ');
-      var toopen = $('li[ms-module="Master"] ');
-      open.removeClass("open");
-      toopen.addClass("open");
-      master = 1;
+    if (event.which == 80) {
+      edit = 0;
+      pub = 1;
     }
 
-    if (event.which == 72) {
-      //alert("Open Master");
-
-      var open = $('li[class="dropdown open"] ');
-      open.removeClass("open");
-      var toopen = $('li[ms-modele-sub="Home"]');
-      toopen.trigger("click");
-
-      master = 0;
+    if (event.which == 69) {
+      edit = 1;
+      pub = 0;
     }
 
-    if (master == 1) {
+    if (pub == 1) {
 
-      if (event.which == 67) {
+      if (event.which == 78) {
 
-        var toopen = $('li[ms-modele-sub="Company"]');
-        var open = $('li[class="dropdown open"] ');
-        open.removeClass("open");
-        toopen.trigger("click");
-        keycount = keycount + 1;
+        var link = "http://" + window.location.hostname + "/admin/NM/add/news";
+        getMsModLink(link);pub = 0;
       }
 
-      if (event.which == 85) {
-
-        var toopen = $('li[ms-modele-sub="User"]');
-        var open = $('li[class="dropdown open"] ');
-        open.removeClass("open");
-        toopen.trigger("click");
-        keycount = keycount + 1;
+      if (event.which == 84) {
+        var link = "http://" + window.location.hostname + "/admin/TM/add/tender";
+        getMsModLink(link);pub = 0;
       }
 
-      if (event.which == 82) {
-
-        var toopen = $('li[ms-modele-sub="Roles"]');
-        var open = $('li[class="dropdown open"] ');
-        open.removeClass("open");
-        toopen.trigger("click");
-        keycount = keycount + 1;
+      if (event.which == 68) {
+        var link = "http://" + window.location.hostname + "/admin/DM/add/document";
+        getMsModLink(link);pub = 0;
       }
     }
   }

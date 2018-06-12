@@ -29,7 +29,9 @@
       @yield('content')
     
     </div> <!-- /container -->
-
+<ol class="breadcrumb navbar-fixed-bottom" style="max-height: 30px;margin-bottom: 0px;border-radius: 0px;">
+     @yield('breadcrumb')
+</ol> 
     @include('Backend.jsEnd')
 
 
@@ -43,7 +45,6 @@
   ga('send', 'pageview');
   
 </script> -->
-
 
   </body>
 </html>

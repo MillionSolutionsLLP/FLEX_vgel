@@ -1,4 +1,4 @@
-<script src="{{asset('js/backend/app.js?nocahe=v1')}}"></script>
+<script src="{{asset('js/backend/app.js?nocahe='. Carbon::now()->timestamp )}}"></script>
 
 
     <!-- Metis Menu Plugin JavaScript -->

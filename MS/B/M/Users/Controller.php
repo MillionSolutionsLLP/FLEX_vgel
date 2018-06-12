@@ -48,7 +48,7 @@ class Controller extends \App\Http\Controllers\Controller
 	   // dd($psw);
 	    $number=$row->pluck('MobileNumber')->first();
 	    $email=$row->pluck('Email')->first();
-	    $name=$row->pluck('NameFirst')->first()." ".$row->pluck('NameFather')->first()." ".$row->pluck('NameLast')->first();
+	    $name=$row->pluck('FirstName')->first()." ".$row->pluck('LastName')->first();
 
 	    if($psw == $input['Password']){
 
@@ -62,11 +62,11 @@ class Controller extends \App\Http\Controllers\Controller
 	        ] ]);
 	   // \MS\Core\Helper\SMS::sendOTP($number,$RT);
 
-	$data2=[
-	'link'=>url("status"),
-	'code'=>$RT,
-	'name'=>$name,
-	];
+			$data2=[
+			'link'=>url("status"),
+			'code'=>$RT,
+			'name'=>$name,
+			];
 
 // 	    \Mail::send('B.M.Users.V.otp_email', $data2, function($message) use ($email,$name) {
 //     $message->to($email,$name)->subject('GUDM Recruitment 2017');
@@ -78,6 +78,11 @@ class Controller extends \App\Http\Controllers\Controller
 	        'OTP'=>session('user')['OTP'],
 	        'id'=>session('user')['id'],
 	        'OV'=>true,
+	        'userData'=>[
+	        	'name'=>$name,
+	        	'email'=>$email,
+
+	        ]
 	        ] ]);  
 
 	    }else{
@@ -225,6 +230,10 @@ class Controller extends \App\Http\Controllers\Controller
 		return view('B.L.Pages.Form')->with('data',$data)	;
 	}
 
+
+
+
+
 	public function add_form_post(Request $r){
 	
 	$input=$r->all();
@@ -255,5 +264,62 @@ class Controller extends \App\Http\Controllers\Controller
 		//return $model->MS_add($input);
 	}
 
+
+
+	public function editUser($UniqId){
+			$id=0;
+			$model=new Model();
+			$build=new \MS\Core\Helper\Builder (__NAMESPACE__);
+			//dd($model->where('UniqId',\MS\Core\Helper\Comman::de4url($UniqId))->get()->first()->toArray());
+			
+			$nullCheck=$model->where('UniqId',\MS\Core\Helper\Comman::de4url($UniqId))->get()->first();
+			//dd($nullCheck);
+			if($nullCheck =! null ){
+				$data=$model->where('UniqId',\MS\Core\Helper\Comman::de4url($UniqId))->get()->first()->toArray();
+			}else{
+				$data=[];
+			}
+			$text="After clicking save it will automatically sign out you from Current Session.";
+			$build->title("Edit User")->content($id,$data)->note($text)->action("editUserPost");
+
+			$build->btn([
+									'action'=>"\B\Panel\Controller@index_data",
+									'color'=>"btn-info",
+									'icon'=>"fa fa-fast-backward",
+									'text'=>"Back"
+								]);
+			$build->btn([
+									//'action'=>"\\B\\MAS\\Controller@editCompany",
+									'color'=>"btn-success",
+									'icon'=>"fa fa-floppy-o",
+									'text'=>"Save"
+								]);
+
+		//	$build->content="<div class='ms-mod-tab'>".$build->content."</div>";
+
+			//dd($build->content);
+			return "<div class='ms-mod-tab'>".$build->view()."</div>";
+	}
+
+
+	public function editUserPost(R\editUser $r){
+
+
+
+
+			$id=0;
+			$status=200;
+			$rData=$r->all();
+			$model=new Model();
+			$model->MS_update($rData,$id);	
+			$array=[
+	 		'msg'=>"OK",
+	 		'redirectLink'=>action('\B\Users\Controller@logout'),
+	 		];
+	 		$json=collect($array)->toJson();
+	 		return response()->json($array, $status);
+
+
+	}
 
 }

@@ -100,7 +100,10 @@ $("#error").html("");
                         getMsModLink(data.redirectData);
 
                       }else{
-                        location.reload();
+
+                      if("redirectLink" in data)
+
+                        window.location.replace(data.redirectLink);
                       }
 
                 }

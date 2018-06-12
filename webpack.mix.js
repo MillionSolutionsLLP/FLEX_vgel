@@ -13,7 +13,26 @@ let mix = require('laravel-mix');
 
 mix
 
-.js('MS/Core/js/backend/app.js', 'public/js/backend')
 
-  .sass('MS/Core/css/backend/app.scss', 'public/css/backend');
+/*
+ |--------------------------------------------------------------------------
+ | For Backend
+ |--------------------------------------------------------------------------
+ */
+
+.js('MS/Core/js/Backend/app.js', 'public/js/backend')
+
+  .sass('MS/Core/css/Backend/app.scss', 'public/css/backend');
+ 
+
+
+ /*
+ |--------------------------------------------------------------------------
+ | For Frontend
+ |--------------------------------------------------------------------------
+ */
+
+//.js('MS/Core/js/Front/app.js', 'public/js/backend')
+
+ // .sass('MS/Core/css/Frontend/app.scss', 'public/css');
  

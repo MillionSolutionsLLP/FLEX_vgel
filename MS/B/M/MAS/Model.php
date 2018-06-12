@@ -51,6 +51,20 @@ protected $base_Field;
 
 
     }
+
+
+        public static function getCompany(){
+        $model=new Model(1);
+
+        $data=$model->get()->toArray();
+
+        $last=count($data)-1;
+        
+        return $data[$last];
+
+
+
+    }
     
 
 

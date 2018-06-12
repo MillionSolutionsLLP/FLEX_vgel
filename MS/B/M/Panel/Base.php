@@ -40,6 +40,16 @@ public static $routes=[
 						'method'=>'index_data',
 						'type'=>'get',
 						],
+
+						[
+						'name'=>'Panel.Data',
+						'route'=>'/mod/data',
+						'method'=>'index_mod_data',
+						'type'=>'get',
+						],
+
+
+						
 					];
 
 

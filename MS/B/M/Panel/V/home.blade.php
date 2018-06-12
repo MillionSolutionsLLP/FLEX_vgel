@@ -1,12 +1,10 @@
-@extends('B.L.Plate')
-@section('Page-title')
-<i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
-@endsection
+@extends('B.L.BasePlate')
+
 
 @section('Page-content')
-@include('Panel.V.home_data')
+@include('Panel.V.panel_data',['data'=>[]])
 @endsection
 
 @section('Page-breadcrumb')
-
+<li class="active">{{ __('panel.home') }}</li>
 @endsection

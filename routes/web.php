@@ -22,9 +22,4 @@ return redirect()->action('\B\Panel\Controller@index');
 });
 
 
-Route::get('/', function () {
-
-
-	dd(MS\Core\Helper\IVR::call('Call'));
-
-});
+Route::get('/', '\F\HM\Controller@index');
