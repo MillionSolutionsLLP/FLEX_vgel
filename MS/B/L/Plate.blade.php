@@ -23,7 +23,7 @@
                         @include('B.L.Object.Error')
                         @yield('Page-content')
                         </div>
-                        @include('B.L.Object.User')
+                       
 
 
                     </div>
@@ -33,7 +33,7 @@
             
             </div>
 
-
+ @include('B.L.Object.User')
 
 
 @endsection

@@ -1,6 +1,6 @@
 <?php
 
-namespace B\IVR\R;
+namespace B\DM\R;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;

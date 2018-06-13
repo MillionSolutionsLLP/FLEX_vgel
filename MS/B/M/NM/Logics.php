@@ -1,9 +1,6 @@
 <?php
-namespace B\IVR;
+namespace B\NM;
 
 class Logics{
-
-
-
 	
 }

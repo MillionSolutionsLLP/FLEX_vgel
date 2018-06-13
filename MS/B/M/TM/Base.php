@@ -1,5 +1,5 @@
 <?php
-namespace {namespace};
+namespace B\TM;
 
 
 use \Illuminate\Http\Request;
@@ -17,13 +17,13 @@ class Base{
 ///////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////
 
-public static $controller="\B\{ModuleCode}\Controller";
-public static $model="\B\M\{ModuleCode}\Model";
+public static $controller="\B\TM\Controller";
+public static $model="\B\M\TM\Model";
 
 
 public static $routes=[
 						[
-						'name'=>'{ModuleCode}.Data',
+						'name'=>'TM.Data',
 						'route'=>'/',
 						'method'=>'index',
 						'type'=>'get',
@@ -43,7 +43,7 @@ public static $allOnSameconnection=true;
 ////////////////////////////////////////////////////////////////////////
 // Sub Module Start
 ////////////////////////////////////////////////////////////////////////
-public static $table="{ModuleCode}";
+public static $table="TM";
 
 public static $connection1 ="IM_Data";
 

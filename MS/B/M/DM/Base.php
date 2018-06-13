@@ -1,5 +1,5 @@
 <?php
-namespace B\IVR;
+namespace B\DM;
 
 
 use \Illuminate\Http\Request;
@@ -17,23 +17,15 @@ class Base{
 ///////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////
 
-public static $controller="\B\IVR\Controller";
-public static $model="\B\M\IVR\Model";
+public static $controller="\B\DM\Controller";
+public static $model="\B\M\DM\Model";
 
 
 public static $routes=[
 						[
-						'name'=>'IVR.Data',
+						'name'=>'DM.Data',
 						'route'=>'/',
 						'method'=>'index',
-						'type'=>'get',
-						],
-
-
-						[
-						'name'=>'IVR.Data',
-						'route'=>'/getIncomming',
-						'method'=>'notify',
 						'type'=>'get',
 						],
 					];
@@ -51,21 +43,15 @@ public static $allOnSameconnection=true;
 ////////////////////////////////////////////////////////////////////////
 // Sub Module Start
 ////////////////////////////////////////////////////////////////////////
-public static $table="IVR";
+public static $table="DM";
 
-//public static $connection ="IM_Data";
+public static $connection1 ="IM_Data";
 
-public static $tableStatus=true;
+public static $tableStatus1=false;
 
 public static $field=[
 ['name'=>'UniqId','type'=>'string','input'=>'auto','value'=>'genUniqID','default'=>'genUniqID',],
-
-['name'=>'Sid','type'=>'string','input'=>'text'],
-['name'=>'To','type'=>'string','input'=>'text'],
-['name'=>'From','type'=>'string','input'=>'text'],
-['name'=>'PhoneNumberSid','type'=>'string','input'=>'text'],
-['name'=>'SDurationid','type'=>'string','input'=>'text'],
-
+['name'=>'Status','type'=>'boolean','input'=>'radio','value'=>'status','default'=>'status'],
 
 ];
 
@@ -455,8 +441,9 @@ public static function genFieldData($data){
 			'name'=>$data['name'],
 			'type'=>$data['input'],
 			'data'=>(array_key_exists('callback', $data) ? self::$data['callback']() : null),
-			'editLock'=>$data['editLock'],
 			];
+
+			if(array_key_exists('editLock', $data))$array['editLock']=$data['editLock'];
 			break;
 
 		case 'disable':

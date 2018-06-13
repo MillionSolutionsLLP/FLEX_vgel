@@ -1,5 +1,5 @@
 <?php
-namespace {namespace};
+namespace B\NM;
 
 
 use \Illuminate\Http\Request;
@@ -17,13 +17,13 @@ class Base{
 ///////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////
 
-public static $controller="\B\{ModuleCode}\Controller";
-public static $model="\B\M\{ModuleCode}\Model";
+public static $controller="\B\NM\Controller";
+public static $model="\B\M\NM\Model";
 
 
 public static $routes=[
 						[
-						'name'=>'{ModuleCode}.Data',
+						'name'=>'NM.Data',
 						'route'=>'/',
 						'method'=>'index',
 						'type'=>'get',
@@ -43,15 +43,22 @@ public static $allOnSameconnection=true;
 ////////////////////////////////////////////////////////////////////////
 // Sub Module Start
 ////////////////////////////////////////////////////////////////////////
-public static $table="{ModuleCode}";
+public static $table="NM";
 
-public static $connection1 ="IM_Data";
+public static $connection1 ="NM_Data";
 
 public static $tableStatus1=false;
 
 public static $field=[
-['name'=>'UniqId','type'=>'string','input'=>'auto','value'=>'genUniqID','default'=>'genUniqID',],
-['name'=>'Status','type'=>'boolean','input'=>'radio','value'=>'status','default'=>'status'],
+['name'=>'UniqId','type'=>'string','input'=>'auto','callback'=>'genUniqID',],
+
+['name'=>'NewsTitle','vName'=>'Title','type'=>'string','input'=>'text'],
+
+['name'=>'NewsDate','vName'=>'Publish From','type'=>'string','input'=>'date'],
+
+['name'=>'NewsDateExp','vName'=>'to','type'=>'string','input'=>'date'],
+
+['name'=>'Status','type'=>'boolean','input'=>'radio','callback'=>'status'],
 
 ];
 

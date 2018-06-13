@@ -36,25 +36,28 @@ Route::prefix('MAS')->group(function () {
 // \MS\Core\Helper\Comman::loadRoute('CCM');
 // });
 
-Route::prefix('PM')->group(function () {
+// Route::prefix('PM')->group(function () {
 
-\MS\Core\Helper\Comman::loadRoute('PM');
+// \MS\Core\Helper\Comman::loadRoute('PM');
 
-});
-
-
-Route::prefix('IM')->group(function () {
-
-\MS\Core\Helper\Comman::loadRoute('IM');
-
-});
+// });
 
 
-Route::prefix('IVR')->group(function () {
+// Route::prefix('IM')->group(function () {
 
-\MS\Core\Helper\Comman::loadRoute('IVR');
-});
+// \MS\Core\Helper\Comman::loadRoute('IM');
+
+// });
+
+
+// Route::prefix('IVR')->group(function () {
+
+// \MS\Core\Helper\Comman::loadRoute('IVR');
+// });
 
 
 
-Route::prefix('BM')->group(function () { \MS\Core\Helper\Comman::loadRoute('BM'); });
+// Route::prefix('BM')->group(function () { \MS\Core\Helper\Comman::loadRoute('BM'); });
+Route::prefix('NM')->group(function () { \MS\Core\Helper\Comman::loadRoute('NM'); });
+Route::prefix('TM')->group(function () { \MS\Core\Helper\Comman::loadRoute('TM'); });
+Route::prefix('DM')->group(function () { \MS\Core\Helper\Comman::loadRoute('DM'); });

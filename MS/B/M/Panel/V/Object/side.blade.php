@@ -32,11 +32,11 @@
     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body list-group">
        
-		  <a href="#" class="list-group-item ms-mod-btn" ms-live-link="{{ action('\B\BM\Controller@addBooking') }}"> <i class="fa fa-newspaper-o" aria-hidden="true"></i> Publish News <strong class="label label-default pull-right">Atl +  P + N</strong></a>
+		  <a href="#" class="list-group-item ms-mod-btn" ms-live-link=""> <i class="fa fa-newspaper-o" aria-hidden="true"></i> Publish News <strong class="label label-default pull-right">Atl +  P + N</strong></a>
 
-      <a href="#" class="list-group-item ms-mod-btn" ms-live-link="{{ action('\B\BM\Controller@viewAllBooking') }}"> <i class="fa fa-bookmark-o" aria-hidden="true"></i> Publish Tender <strong class="label label-default pull-right">Atl +  P + T</strong></a>
+      <a href="#" class="list-group-item ms-mod-btn" ms-live-link=""> <i class="fa fa-bookmark-o" aria-hidden="true"></i> Publish Tender <strong class="label label-default pull-right">Atl +  P + T</strong></a>
 
-      <a href="#" class="list-group-item ms-mod-btn" ms-live-link="{{ action('\B\BM\Controller@closeBookingForm') }}"> <i class="fa fa-file-text-o" aria-hidden="true"></i> Publish Document <strong class="label label-default pull-right">Atl + P + D</strong></a>
+      <a href="#" class="list-group-item ms-mod-btn" ms-live-link=""> <i class="fa fa-file-text-o" aria-hidden="true"></i> Publish Document <strong class="label label-default pull-right">Atl + P + D</strong></a>
 
   
     
@@ -76,11 +76,11 @@
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body list-group">
        
-      <a href="#" class="list-group-item ms-mod-btn" ms-live-link="{{ action('\B\BM\Controller@addBooking') }}"> <i class="fa fa-newspaper-o" aria-hidden="true"></i> Manage News <strong class="label label-default pull-right">Atl + E + N </strong></a>
+      <a href="#" class="list-group-item ms-mod-btn" ms-live-link=" "> <i class="fa fa-newspaper-o" aria-hidden="true"></i> Manage News <strong class="label label-default pull-right">Atl + E + N </strong></a>
 
-      <a href="#" class="list-group-item ms-mod-btn" ms-live-link="{{ action('\B\BM\Controller@viewAllBooking') }}"> <i class="fa fa-bookmark-o" aria-hidden="true"></i> Manage Tender <strong class="label label-default pull-right">Atl + E + T</strong></a>
+      <a href="#" class="list-group-item ms-mod-btn" ms-live-link=" "> <i class="fa fa-bookmark-o" aria-hidden="true"></i> Manage Tender <strong class="label label-default pull-right">Atl + E + T</strong></a>
 
-      <a href="#" class="list-group-item ms-mod-btn" ms-live-link="{{ action('\B\BM\Controller@closeBookingForm') }}"> <i class="fa fa-file-text-o" aria-hidden="true"></i> Manage Document <strong class="label label-default pull-right">Atl + E + D</strong></a>
+      <a href="#" class="list-group-item ms-mod-btn" ms-live-link=" "> <i class="fa fa-file-text-o" aria-hidden="true"></i> Manage Document <strong class="label label-default pull-right">Atl + E + D</strong></a>
 
   
     

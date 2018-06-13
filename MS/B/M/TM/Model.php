@@ -1,5 +1,5 @@
 <?php
-namespace B\IVR;
+namespace B\TM;
 
 class Model extends \Illuminate\Database\Eloquent\Model
 {
@@ -10,15 +10,16 @@ protected $fillable;
 protected $base_Field;
 
 
-    public function __construct($id=false)
+    public function __construct($id=false,$code=false,$connection=false)
     {
 
-        if($id){
+        if($id){    
 
-            $this->table=Base::getTable($id);
-            $this->connection=Base::getConnection($id);
+
+            if($code){ $this->table=Base::getTable($id).$code;}else{$this->table=Base::getTable($id);}
+            if($connection){$this->connection=$connection;}else{$this->connection=Base::getConnection($id);}
             $this->base_Field=Base::getField($id);
-            //dd($this->base_Field);
+
         }else
         {
 
