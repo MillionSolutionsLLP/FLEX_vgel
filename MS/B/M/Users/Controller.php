@@ -16,7 +16,11 @@ class Controller extends \App\Http\Controllers\Controller
 		// dd(\MS\Core\Helper\Comman::de($encrypt, ENCRYPTION_KEY));
 		//return view('Users.V.add_form')	;
 		//$model=new Model();
+		
+
+
 		dd(session('user'));
+
 	}
 
 	public function login_form(){

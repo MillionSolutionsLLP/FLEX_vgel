@@ -11,14 +11,40 @@ public $basePath='MS'.DIRECTORY_SEPARATOR.'DB'.DIRECTORY_SEPARATOR.'Master'.DIRE
 public $loadArray=[];
 
 
+public $modules=[
+
+'MAS',
+'NM',
+'TM',
+'DM'
+
+];
+
+
+
+
+
+
+
 public static function load(){
 
+  $class=new DB ();
+
+  foreach ($class->modules as $value) {
+    
+  $class->loadUnit($value);    
+
+  }
+
+
+
+  return $class->loadArray;
 	
 
 }
 
 
-public static function loadUnit($module){
+public  function loadUnit($module){
 
 	$return[$module.$this->m]=[
 								'driver' => 'sqlite',
@@ -31,7 +57,7 @@ public static function loadUnit($module){
   						        'database' => base_path($this->basePath.$module.$this->d),
    								'prefix' => '',
 							];
-
+  $this->loadArray=array_merge($this->loadArray,$return);
 
 
 }

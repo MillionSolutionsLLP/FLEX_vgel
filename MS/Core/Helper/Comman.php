@@ -281,7 +281,8 @@ class Comman {
 				//$value['route']=strtolower($value['route']);
 				switch ($value['type']) {
 					case 'get':
-						\Route::get($value['route'],$cl::$controller."@".$value['method']);
+						//\Route::get($value['route'],$cl::$controller."@".$value['method']);
+						\Route::get($value['route'],$cl::$controller."@".$value['method'])->name($value['name']);
 						break;
 
 					case 'post':

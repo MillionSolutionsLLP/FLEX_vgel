@@ -1,5 +1,8 @@
 <?php
 
+
+
+
 return [
 
     /*
@@ -31,53 +34,23 @@ return [
     |
     */
 
-    'connections' => [
-
-        'sqlite' => [
-            'driver' => 'sqlite',
-            'database' => base_path(env('DB_DATABASE',  'MS'.DIRECTORY_SEPARATOR.'DB'.DIRECTORY_SEPARATOR.'Master'.DIRECTORY_SEPARATOR.'MSCONFIG')),
-            'prefix' => '',
-        ],
-
-        'MSDBC' => [
-            'driver' => 'sqlite',
-            'database' => base_path('MS'.DIRECTORY_SEPARATOR.'DB'.DIRECTORY_SEPARATOR.'Master'.DIRECTORY_SEPARATOR.'config'),
-            'prefix' => '',
-        ],
-
-
-        'IM_Master' => [
-            'driver' => 'sqlite',
-            'database' => base_path('MS'.DIRECTORY_SEPARATOR.'DB'.DIRECTORY_SEPARATOR.'Master'.DIRECTORY_SEPARATOR.'IM_Master'),
-            'prefix' => '',
-        ],
-
-
-        'IM_Data' => [
-            'driver' => 'sqlite',
-            'database' => base_path('MS'.DIRECTORY_SEPARATOR.'DB'.DIRECTORY_SEPARATOR.'Master'.DIRECTORY_SEPARATOR.'IM_Data'),
-            'prefix' => '',
-        ],
-
-
-
-
-        'BM_Master' => [
-            'driver' => 'sqlite',
-            'database' => base_path('MS'.DIRECTORY_SEPARATOR.'DB'.DIRECTORY_SEPARATOR.'Master'.DIRECTORY_SEPARATOR.'BM_Master'),
-            'prefix' => '',
-        ],
-
-
-        'BM_Data' => [
-            'driver' => 'sqlite',
-            'database' => base_path('MS'.DIRECTORY_SEPARATOR.'DB'.DIRECTORY_SEPARATOR.'Master'.DIRECTORY_SEPARATOR.'BM_Data'),
-            'prefix' => '',
-        ],
-
-
-
-    ],
+    'connections' => array_merge([
+    
+            'sqlite' => [
+                'driver' => 'sqlite',
+                'database' => base_path(env('DB_DATABASE',  'MS'.DIRECTORY_SEPARATOR.'DB'.DIRECTORY_SEPARATOR.'Master'.DIRECTORY_SEPARATOR.'MSCONFIG')),
+                'prefix' => '',
+            ],
+    
+            'MSDBC' => [
+                'driver' => 'sqlite',
+                'database' => base_path('MS'.DIRECTORY_SEPARATOR.'DB'.DIRECTORY_SEPARATOR.'Master'.DIRECTORY_SEPARATOR.'config'),
+                'prefix' => '',
+            ],
+    
+    
+    
+        ],MS\Core\Patch\DB::load()),
 
     /*
     |--------------------------------------------------------------------------

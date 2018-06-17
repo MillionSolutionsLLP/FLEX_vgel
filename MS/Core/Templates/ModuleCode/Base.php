@@ -414,6 +414,7 @@ public static function genFieldData($data){
 
 			];
 			}
+			if(array_key_exists('vName', $data))$array['vName']=$data['vName'];
 
 			break;
 
@@ -425,6 +426,7 @@ public static function genFieldData($data){
 			'value'=>(array_key_exists('callback', $data) ? self::$data['callback']() : null),
 			'default'=>(array_key_exists('default', $data) ? self::$data['default']() : null),
 			];
+			if(array_key_exists('vName', $data))$array['vName']=$data['vName'];
 			break;
 
 		case 'number':
@@ -434,6 +436,7 @@ public static function genFieldData($data){
 			'type'=>$data['input'],
 			'value'=>(array_key_exists('callback', $data) ? self::$data['callback']() : null),
 			];
+			if(array_key_exists('vName', $data))$array['vName']=$data['vName'];
 			break;
 		case 'option':
 			$array=[
@@ -442,7 +445,7 @@ public static function genFieldData($data){
 			'type'=>$data['input'],
 			'data'=>(array_key_exists('callback', $data) ? self::$data['callback']() : null),
 			];
-
+			if(array_key_exists('vName', $data))$array['vName']=$data['vName'];
 			if(array_key_exists('editLock', $data))$array['editLock']=$data['editLock'];
 			break;
 
@@ -453,6 +456,7 @@ public static function genFieldData($data){
 			'type'=>$data['input'],
 			'value'=>(array_key_exists('callback', $data) ? self::$data['callback']() : null),
 			];
+			if(array_key_exists('vName', $data))$array['vName']=$data['vName'];
 			break;
 
 
@@ -464,6 +468,7 @@ public static function genFieldData($data){
 			'value'=>(array_key_exists('callback', $data) ? self::$data['callback']() : null),
 			'data'=>(array_key_exists('default', $data) ? self::$data['default']() : null),
 			];
+			if(array_key_exists('vName', $data))$array['vName']=$data['vName'];
 			break;
 
 		case 'check':
@@ -473,6 +478,7 @@ public static function genFieldData($data){
 			'type'=>$data['input'],
 			'value'=>(array_key_exists('callback', $data) ? self::$data['callback']() : null),
 			];
+			if(array_key_exists('vName', $data))$array['vName']=$data['vName'];
 			break;
 
 		case 'password':
@@ -482,6 +488,7 @@ public static function genFieldData($data){
 			'type'=>$data['input'],
 			'value'=>(array_key_exists('callback', $data) ? self::$data['callback']() : null),
 			];
+			if(array_key_exists('vName', $data))$array['vName']=$data['vName'];
 			break;
 
 
@@ -492,6 +499,7 @@ public static function genFieldData($data){
 			'type'=>$data['input'],
 			'value'=>(array_key_exists('callback', $data) ? self::$data['callback']() : null),
 			];
+			if(array_key_exists('vName', $data))$array['vName']=$data['vName'];
 			break;
 
 			case 'auto':
@@ -507,7 +515,9 @@ public static function genFieldData($data){
 			//'value'=>(array_key_exists('callback', $data) ? self::$data['callback']() : null),
 			'value'=>(array_key_exists('callback', $data) ? self::$data['callback']() : null),
 			];
+			if(array_key_exists('vName', $data))$array['vName']=$data['vName'];
 			break;
+
 			case 'date':
 			$array=[
 			'lable'=>ucfirst($data['name']),
@@ -515,6 +525,7 @@ public static function genFieldData($data){
 			'type'=>$data['input'],
 			'value'=>(array_key_exists('callback', $data) ? self::$data['callback']() : null),
 			];
+			if(array_key_exists('vName', $data))$array['vName']=$data['vName'];
 			break;
 
 			case 'file':
@@ -524,6 +535,7 @@ public static function genFieldData($data){
 			'type'=>$data['input'],
 			'value'=>(array_key_exists('callback', $data) ? self::$data['callback']() : null),
 			];
+			if(array_key_exists('vName', $data))$array['vName']=$data['vName'];
 			break;
 		
 

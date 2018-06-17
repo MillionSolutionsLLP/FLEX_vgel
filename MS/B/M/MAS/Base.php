@@ -259,19 +259,12 @@ public static $routes=[
 						'type'=>'get',
 						],
 
-////////////////////////////////////////////////////////////////////////
-// Master TNC Route End
-////////////////////////////////////////////////////////////////////////
 
 
 					];
 
 
-///////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////
-//Basic Details of Model Table,Column & Connection///////////
-///////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
+
 
 public static $field=[
 
@@ -312,7 +305,7 @@ public static $field1=[
 
 
 ];
-#accounts@kgnenterprises.com
+
 
 
 public static $field2=[
@@ -345,74 +338,34 @@ public static $field4=[
 
 
 
-public static $field5=[
-
-['name'=>'UniqId','type'=>'string','input'=>'auto','callback'=>'genUniqID','default'=>'genUniqID',],
-['name'=>'Year','type'=>'string','input'=>'number'],
-['name'=>'Rate','type'=>'string','input'=>'number'],
-
-];
-
-public static $field6=[
-
-['name'=>'UniqId','type'=>'string','input'=>'auto','callback'=>'genUniqID','default'=>'genUniqID',],
-['name'=>'Starting','type'=>'string','input'=>'number'],
-['name'=>'Ending','type'=>'string','input'=>'number'],
-['name'=>'Rate','type'=>'string','input'=>'number'],
-	
-
-];
-
-
-public static $field7=[
-
-['name'=>'UniqId','type'=>'string','input'=>'auto','callback'=>'genUniqID','default'=>'genUniqID',],
-['name'=>'FirstName','type'=>'string','input'=>'text'],
-['name'=>'LastName','type'=>'string','input'=>'text'],
-['name'=>'Gender','type'=>'string','input'=>'option'],
-['name'=>'usename','type'=>'string','input'=>'text'],
-['name'=>'password','type'=>'string','input'=>'text'],
-['name'=>'MobileNo','type'=>'string','input'=>'text'],
-['name'=>'Email','type'=>'string','input'=>'text'],
-['name'=>'Desiganation','type'=>'string','input'=>'text'],
-	
-
-];
-
 public static $table="MAS_Master_CC_Rate";
 public static $tableStatus=False;
+public static $connection ="MAS_Master";
 
 
 
 public static $table1="MAS_Master_Company";
 public static $tableStatus1=True;
+public static $connection1 ="MAS_Master";
 
 public static $table2="MAS_Master_Terms_Conditions";
 public static $tableStatus2=True;
+public static $connection2 ="MAS_Master";
 
 public static $table3="MAS_Master_Tax";
 public static $tableStatus3=True;
+public static $connection3 ="MAS_Master";
 
 public static $table4="MAS_Master_HSN_Code";
 public static $tableStatus4=True;
-
-public static $table5="MAS_Master_TC_Usage_Rate";
-public static $tableStatus5=False;
-
-public static $table6="MAS_Master_TC_Fine_Rate";
-public static $tableStatus6=False;
-
-public static $table7="MAS_Master_User";
-public static $tableStatus7=False;
+public static $connection4 ="MAS_Master";
 
 
 
 
+//public static $connection ="MSDBC";
 
-
-public static $connection ="MSDBC";
-
-public static $allOnSameconnection=true;
+public static $allOnSameconnection=false;
 
 
 
