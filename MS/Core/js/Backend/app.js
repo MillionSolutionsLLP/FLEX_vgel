@@ -51,6 +51,16 @@ var doc=0;
 
 var pub=0;
 var edit=0;
+var view=0;
+var add=0;
+
+function getLinkFromShort(key){
+
+  var obj="[ms-shortcut=\'"+key +"\']";
+  var link = $(obj).attr('ms-live-link');
+
+  return link;
+}
 
 $( "body" ).on( "keydown", function( event ) {
 
@@ -60,45 +70,113 @@ if(event.altKey){
 
 event.preventDefault();
 
+
+//Key 1
+if(event.which == 49 ){
+    
+    var link=getLinkFromShort('1');
+    getMsLink(link);
+
+
+}
+
+//Key 2
+if(event.which == 50 ){
+    
+    var link=getLinkFromShort('2');
+    getMsLink(link);
+
+
+}
+
+
+//Key 3
+if(event.which == 51 ){
+    
+    var link=getLinkFromShort('3');
+    getMsLink(link);
+
+
+}
+
+//Key 4
+if(event.which == 52 ){
+    
+    var link=getLinkFromShort('4');
+    getMsLink(link);
+
+
+}
+
+//Key 5
+if(event.which == 53 ){
+    
+    var link=getLinkFromShort('5');
+    getMsLink(link);
+
+
+}
+
+
+//Key H
+if(event.which == 72 ){
+    
+    var link=getLinkFromShort('h');
+
+    getMsLink(link);
+
+}
+
+
+//Key P
 if(event.which == 80 ){
-  edit=0;
-  pub=1;
+    
 
-}
-
-if(event.which == 69 ){
-  edit=1;
-  pub=0;
-}
-
-
-
-if(pub ==1){
-
-
-if(event.which == 78 ){
-
-  var link="http://"+window.location.hostname + "/admin/NM/add/news" ; 
-  getMsModLink(link);pub=0;
-}
-
-
-if(event.which == 84 ){
- var link="http://"+window.location.hostname + "/admin/TM/add/tender" ; 
-  getMsModLink(link);pub=0;
-}
-
-if(event.which == 68 ){
- var link="http://"+window.location.hostname + "/admin/DM/add/document" ; 
-  getMsModLink(link);pub=0;
-}
-
-
+    $("#profileModal").modal('show');
 
 }
 
 
 
+//Key Q
+if(event.which == 81 ){
+    
+    var link=getLinkFromShort('q');
+    window.location =link; 
+    //getMsLink(link);
+
+}
+
+
+
+//Key A
+if(event.which == 65 ){
+  
+    add=1;
+
+}
+
+
+//Key N
+if(add){
+
+  if(event.which == 78 ){
+  
+    add=0;
+    var link=getLinkFromShort('a+n');
+
+    getMsModLink(link);
+
+  }
+
+}
+
+
+
+
+
+
+
 
 
 
@@ -106,9 +184,6 @@ if(event.which == 68 ){
 }
 
 
-
-//console.log(master);
-//console.log( event.type + ": " +  event.which);
 });
 
 
@@ -133,8 +208,18 @@ var tab2 =$(this).attr('ms-js-target');
 });
 
 
+
+
+
+/////////////////////
+////////////////////
+///DO NOt EDIT/////
+//////////////////
+/////////////////
+
+
 function loadingOn() {
-  
+  $(".in").removeClass("in");
  $(".loading").fadeIn( "slow", function() {
     // Animation complete
   });;
@@ -209,14 +294,12 @@ $.ajax({
 }
 
 
-
-$("body").on("click",".ms-live-btn",function (){
-
-
-var link= $(this).attr('ms-live-link');
-
-$(".ms-live-tab").slideUp();
+function getMsLink(link) {
+$(".ms-live-tab").slideUp("slow");
 loadingOn();
+
+
+
 $.ajax({
                 url: link,  //server script to process data
                 type: 'GET',
@@ -229,13 +312,10 @@ $.ajax({
                 },
                 // Ajax events
                 success: completeHandler = function(data) {
-                 // alert("Your action taken succefully.!");
-                 
-                // console.log("msg" in data);
-                $(".in").removeClass("in");
+                
                 $(".ms-live-tab").html(data);
-                $(".ms-live-tab").slideDown();
-                loadingOff();
+                $(".ms-live-tab").slideDown("fast");
+               loadingOff();
 
               
                 },
@@ -249,7 +329,16 @@ $.ajax({
                 processData: false
             }, 'json');
 
-//alert($(this).attr('ms-live-link'));
+}
+
+
+
+$("body").on("click",".ms-live-btn",function (){
+
+
+var link= $(this).attr('ms-live-link');
+
+    getMsLink(link);
 
 });
 
@@ -279,7 +368,7 @@ var link= $('.ms-form').attr('action');
                  // alert("Your action taken succefully.!");
                  
                 // console.log("msg" in data);
-              	//console.log(data);
+                //console.log(data);
               //data=$.parseJSON(data);
               //console.log(data);
 
@@ -321,9 +410,9 @@ var link= $('.ms-form').attr('action');
                  var html="";
                  jQuery.each(xhr.responseJSON.msg,function (item, index){
 
-                 	html+='<span><i class="fa fa-exclamation" aria-hidden="true"></i> '+item+'</span><br>';
-           			 $("#error").html(html);
-           			 $("#error").slideDown();
+                  html+='<span><i class="fa fa-exclamation" aria-hidden="true"></i> '+item+'</span><br>';
+                 $("#error").html(html);
+                 $("#error").slideDown();
 
 
                  });
@@ -338,5 +427,4 @@ var link= $('.ms-form').attr('action');
                 processData: false
             }, 'json');
 });
-
 

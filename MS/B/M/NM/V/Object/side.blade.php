@@ -32,8 +32,8 @@
     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body list-group">
        
-		  <a href="#" class="list-group-item ms-mod-btn" ms-live-link="{{ route('NM.addNews')}}"> <i class="fa fa-plus-square" aria-hidden="true"></i> Add News</a>
-      <a href="#" class="list-group-item ms-mod-btn" ms-live-link=""> <i class="fa fa-pencil-square" aria-hidden="true"></i> Edit News</a>
+		  <a href="#" class="list-group-item ms-mod-btn" ms-live-link="{{ route('NM.addNews')}}" ms-shortcut="a+n"> <i class="fa fa-plus-square" aria-hidden="true"></i> Add News<strong class="label label-default pull-right">Atl +  A + N</strong></a>
+      <a href="#" class="list-group-item ms-mod-btn" ms-live-link=""  ms-shortcut="e+n"> <i class="fa fa-pencil-square" aria-hidden="true"></i> Edit News</a>
 
       </div>
     </div>

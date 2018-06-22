@@ -88,7 +88,7 @@ public static $tableNo="0";
 
 
 
-public static $connection ="MSDBC";
+//public static $connection ="MSDBC";
 
 public static $allOnSameconnection=true;
 
@@ -97,11 +97,11 @@ public static $allOnSameconnection=true;
 ////////////////////////////////////////////////////////////////////////
 // Sub Module Start
 ////////////////////////////////////////////////////////////////////////
-public static $table="NM";
+public static $table="NM_News";
 
-public static $connection1 ="NM_Data";
+public static $connection ="NM_Data";
 
-public static $tableStatus1=false;
+public static $tableStatus=false;
 
 public static $field=[
 ['name'=>'UniqId','type'=>'string','input'=>'auto','callback'=>'genUniqID',],
@@ -110,9 +110,9 @@ public static $field=[
 
 ['name'=>'NewsContent','vName'=>'Content','type'=>'string','input'=>'textarea'],
 
-['name'=>'NewsDate','vName'=>'Publish From','type'=>'string','input'=>'date'],
+['name'=>'NewsDate','vName'=>'Publish From','type'=>'string','input'=>'date','callback'=>'currentDate'],
 
-['name'=>'NewsDateExp','vName'=>'to','type'=>'string','input'=>'date'],
+['name'=>'NewsDateExp','vName'=>'to','type'=>'string','input'=>'date','callback'=>'currentDateEnd'],
 
 ['name'=>'Status','type'=>'boolean','input'=>'radio','default'=>'status'],
 
@@ -123,6 +123,36 @@ public static $field=[
 ////////////////////////////////////////////////////////////////////////
 // Sub Module End
 ////////////////////////////////////////////////////////////////////////
+
+
+
+
+////////////////////////////////////////////////////////////////////////
+// Sub Module Start
+////////////////////////////////////////////////////////////////////////
+public static $table1="NM_News_File";
+
+public static $connection1 ="NM_Data";
+
+public static $tableStatus1=false;
+
+public static $field1=[
+
+
+
+['name'=>'Attachments','vName'=>'Title','type'=>'string','input'=>'file'],
+
+
+];
+
+
+
+////////////////////////////////////////////////////////////////////////
+// Sub Module End
+////////////////////////////////////////////////////////////////////////
+
+
+
 
 
 
@@ -144,6 +174,17 @@ public static function status(){
 	];
 }
 
+	
+public static function currentDate(){
+
+	return \Carbon::now()->toDateString();
+	//dd(\Carbon::now()->addYear()->toDateString() );
+
+}
+
+public static function currentDateEnd(){
+	return \Carbon::now()->addYear()->toDateString() ;
+}
 
 
 

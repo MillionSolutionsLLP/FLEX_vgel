@@ -32,7 +32,7 @@
     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body list-group">
        
-		  <a href="#" class="list-group-item ms-mod-btn" ms-live-link=""> <i class="fa fa-newspaper-o" aria-hidden="true"></i> Publish News <strong class="label label-default pull-right">Atl +  P + N</strong></a>
+		  <a href="#" class="list-group-item ms-mod-btn" ms-live-link="{{route('NM.addNews') }}" ms-shortcut="p+n"> <i class="fa fa-newspaper-o" aria-hidden="true"></i> Publish News <strong class="label label-default pull-right">Atl +  P + N</strong></a>
 
       <a href="#" class="list-group-item ms-mod-btn" ms-live-link=""> <i class="fa fa-bookmark-o" aria-hidden="true"></i> Publish Tender <strong class="label label-default pull-right">Atl +  P + T</strong></a>
 

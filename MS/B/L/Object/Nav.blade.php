@@ -1,7 +1,7 @@
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="navbar-header">
                 
-                <span role="presentation" class="ms-live-btn ms-history-btn" ms-live-link="{{(action("\B\Panel\Controller@index_data"))}}"><a class="" href="#">
+                <span role="presentation" class="ms-live-btn ms-history-btn" ms-live-link="{{(action("\B\Panel\Controller@index_data"))}}" ms-shortcut="h"><a class="" href="#">
            
 
                   <img class="ms-logo" src="{{asset('images/'.env('APP_V_LOGO','billing.png'))}}" />

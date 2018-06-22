@@ -54,7 +54,7 @@ class Controller extends \App\Http\Controllers\Controller
 								'color'=>"btn-success",
 								'icon'=>"fa fa-floppy-o",
 								'text'=>"Save"
-							]);
+							])->js(["NM.J.news"])->extraFrom(1,['title'=>'Attachments','multiple'=>true,'multipleAdd'=>true]);
 
 
 		return $build->view();
@@ -62,17 +62,58 @@ class Controller extends \App\Http\Controllers\Controller
 
 
 	}
-	public function addNewsPost(){
+	public function addNewsPost(R\AddNews $r){
 
 
+			$status=200;
+			$tableId=0;
+			$rData=$r->all();
+			
+			//dd();
+			if(array_key_exists('Attachments',$rData)){
+				$FileNo=0;
+				$filePath=[];
+				foreach ($rData['Attachments'] as  $value) {
+					$filePath[]=$value->storeAs($rData['UniqId'], $rData['UniqId'].$FileNo.'.jpg', 'NM');
+					$FileNo++;
+				}
 		
+			}
+
+			dd(\Storage::disk('NM')->url($filePath[0]));
+			dd($filePath);
+			$model=new Model($tableId);
+			//$model->MS_add($arraReturn,$tableId);
+
+
+
+
+
+
+
+
+			$array=[
+					'msg'=>"OK",
+			 		'redirectData'=>action('\B\NM\Controller@indexData'),
+			 		//'data'=>$input,
+			 		//'array'=>$arraReturn
+
+				];
+
+	
+		 return response()->json($array, $status);
 
 
 
 	}
 	public function editNews($UniqId){}
 	public function editNewsPost(){}
-	public function viewNews(){}
+	public function viewNews(){
+
+		
+
+
+	}
 	public function viewNewsbyId($UniqId){}
 	
 

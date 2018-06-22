@@ -22,13 +22,13 @@ if(array_key_exists('index', $data))$index=$index+$data['index'];
 
 		}
 
-			echo Form::label($data['name'], $data['lable']."*");
+			echo Form::label($data['name'], $data['lable']);
 			echo Form::file($data['name'], $data['value'],['class'=>'form-control','tabindex'=>$index,] );
 		
 ?>
 
-<small class="text-danger ">
+<!-- <small class="text-danger ">
 *=new file uploaded old, file will be deleted after adminstration permision.
 </small>
-    
+     -->
 </div> 

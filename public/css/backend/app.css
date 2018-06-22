@@ -8350,6 +8350,10 @@ button.close {
   }
 }
 
+textarea {
+  resize: vertical;
+}
+
 .ms-btn-full-width {
   width: 100%;
 }

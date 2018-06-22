@@ -9,7 +9,7 @@
 
    ?>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" >
+<div class="modal fade" id="profileModal" tabindex="-1" role="dialog" >
   <div class="modal-dialog " role="document">
 
 

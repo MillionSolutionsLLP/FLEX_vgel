@@ -46,7 +46,7 @@ return [
         'MS-MASTER-CORE'=>[
 
             'driver' => 'local',
-            'root' => base_path(),
+            'root' => base_path('MS'),
         ],
 
         'local' => [
@@ -54,21 +54,32 @@ return [
             'root' => storage_path('app'),
         ],
 
-        'public' => [
+        'NM' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'root' => storage_path('app/NM'),
+            'url' => env('APP_URL').'/NM',
             'visibility' => 'public',
         ],
 
-        's3' => [
-            'driver' => 's3',
-            'key' => env('AWS_KEY'),
-            'secret' => env('AWS_SECRET'),
-            'region' => env('AWS_REGION'),
-            'bucket' => env('AWS_BUCKET'),
+
+        'TM' => [
+            'driver' => 'local',
+            'root' => storage_path('app/TM'),
+            'url' => env('APP_URL').'/TM',
+            'visibility' => 'public',
         ],
+
+        'DM' => [
+            'driver' => 'local',
+            'root' => storage_path('app/DM'),
+            'url' => env('APP_URL').'/DM',
+            'visibility' => 'public',
+        ],
+
+     
 
     ],
 
 ];
+
+

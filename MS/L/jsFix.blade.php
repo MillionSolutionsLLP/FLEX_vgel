@@ -7,7 +7,9 @@ $(document).on("click",".RemoveSectionBtn",function(){
  
 
   $(this).parent('div').remove();
-
+ // alert($("[ms-input-count]").attr('ms-input-count'));
+var input =parseInt($("[ms-input-count]").attr('ms-input-count'));
+  $("[ms-input-count]").attr('ms-input-count',input-1);
 
 });
 

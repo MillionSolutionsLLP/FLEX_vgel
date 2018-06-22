@@ -283,6 +283,8 @@ class Controller extends \App\Http\Controllers\Controller
 			}else{
 				$data=[];
 			}
+
+			if(array_key_exists('Password',$data))$data['Password']=\MS\Core\Helper\Comman::en($data['Password'], ENCRYPTION_KEY);
 			$text="After clicking save it will automatically sign out you from Current Session.";
 			$build->title("Edit User")->content($id,$data)->note($text)->action("editUserPost");
 
@@ -314,7 +316,19 @@ class Controller extends \App\Http\Controllers\Controller
 			$id=0;
 			$status=200;
 			$rData=$r->all();
+
+
+			// if(array_key_exists('Password',$rData))$rData['Password']=\MS\Core\Helper\Comman::de($rData['Password'], ENCRYPTION_KEY);
 			$model=new Model();
+
+			$user=$model->where('UniqId',$rData['UniqId'])->get()->first()->toArray();
+			if($user['Password']!=$rData['Password']){
+
+				$rData['Password']=\MS\Core\Helper\Comman::en($rData['Password']);
+
+			}
+
+			
 			$model->MS_update($rData,$id);	
 			$array=[
 	 		'msg'=>"OK",

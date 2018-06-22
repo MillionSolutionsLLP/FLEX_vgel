@@ -85,7 +85,7 @@ class Builder{
 
 		if($this->form>0){
 
-			$this->content.="<div class='ProductDetails' >";
+			$this->content.="<div class='DynamicSection' >";
 			$this->content.=\MS\Core\Helper\DForm::display($formdata,$formdataArray);	}
 		else{
 
@@ -235,7 +235,7 @@ class Builder{
 
 					if($data['multipleAdd']){
 
-							$this->content.='<div class="col-lg-12"><h3>' .$title.'<span ms-id="'.$this->form.'" class="btn btn-default btn-success glyphicon glyphicon-plus pull-right AddSectionBtn"></span></h3></div>';
+							$this->content.='<div class="col-lg-12"><h3>' .$title.'<span ms-input-count="1" ms-id="'.$this->form.'" class="btn btn-default btn-success glyphicon glyphicon-plus pull-right AddSectionBtn"></span></h3></div>';
 					}else{
 						goto end;
 					}
