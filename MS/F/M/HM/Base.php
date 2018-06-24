@@ -1,5 +1,5 @@
 <?php
-namespace B\HM;
+namespace F\HM;
 
 
 use \Illuminate\Http\Request;
@@ -13,12 +13,12 @@ class Base{
 
 ///////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
-//Basic Details of Model Table,Column & Connection///////////
+//event_base_priority_init(event_base, npriorities)c Details of Model Table,Column & Connection///////////
 ///////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////
 
-public static $controller="\B\HM\Controller";
-public static $model="\B\M\HM\Model";
+public static $controller="\F\HM\Controller";
+public static $model="\F\M\HM\Model";
 
 
 public static $routes=[
@@ -26,6 +26,13 @@ public static $routes=[
 						'name'=>'HM.Data',
 						'route'=>'/',
 						'method'=>'index',
+						'type'=>'get',
+						],
+
+							[
+						'name'=>'HM.ContactUs',
+						'route'=>'/ContactUs',
+						'method'=>'contactUs',
 						'type'=>'get',
 						],
 					];
@@ -443,7 +450,7 @@ public static function genFieldData($data){
 			'data'=>(array_key_exists('callback', $data) ? self::$data['callback']() : null),
 			];
 
-			(array_key_exists('editLock', $data))$array['editLock']=$data['editLock'];
+			if(array_key_exists('editLock', $data))$array['editLock']=$data['editLock'];
 			break;
 
 		case 'disable':

@@ -12,7 +12,7 @@ class Controller extends \App\Http\Controllers\Controller
 
 
 
-
+	//	Base::migrate([['id'=>2]]);
 			$data=[
 
 			
@@ -66,24 +66,55 @@ class Controller extends \App\Http\Controllers\Controller
 
 
 			$status=200;
-			$tableId=0;
+			$tableId=2;
 			$rData=$r->all();
-			
+			$filePath=[];
+			$FileNo=0;
 			//dd();
 			if(array_key_exists('Attachments',$rData)){
-				$FileNo=0;
-				$filePath=[];
+				
+				
 				foreach ($rData['Attachments'] as  $value) {
-					$filePath[]=$value->storeAs($rData['UniqId'], $rData['UniqId'].$FileNo.'.jpg', 'NM');
+					
+					$filePath[ $rData['UniqId'].$FileNo]=$value->storeAs($rData['UniqId'], $rData['UniqId'].$FileNo.'.'.$value->clientExtension(), 'NM');
+
+					
 					$FileNo++;
 				}
-		
-			}
 
-			dd(\Storage::disk('NM')->url($filePath[0]));
-			dd($filePath);
+			}
+			
+	
+			if($FileNo > 0 ){$FileNo=true;}else{$FileNo=false;}
+
+			if($rData['Status']){$rData['Status']=true;}else{$rData['Status']=false;}
+
+
+			$arraReturn=[
+'UniqId'=>$rData['UniqId'],
+
+'NewsTitle'=>$rData['NewsTitle'],
+
+'NewsContent'=>$rData['NewsContent'],
+
+'NewsDate'=>$rData['NewsDate'],
+
+'NewsDateExp'=>$rData['NewsDateExp'],
+
+'NewsFileAttchments'=>$FileNo,
+
+'NewsFileArray'=>collect($filePath)->toJson(),
+
+'Status'=>$rData['Status'],
+
+			];
+
+
+			//dd($arraReturn);
+			
+
 			$model=new Model($tableId);
-			//$model->MS_add($arraReturn,$tableId);
+			$return=$model->MS_add($arraReturn,$tableId);
 
 
 
@@ -96,7 +127,7 @@ class Controller extends \App\Http\Controllers\Controller
 					'msg'=>"OK",
 			 		'redirectData'=>action('\B\NM\Controller@indexData'),
 			 		//'data'=>$input,
-			 		//'array'=>$arraReturn
+			 		'array'=>$return
 
 				];
 
@@ -110,8 +141,43 @@ class Controller extends \App\Http\Controllers\Controller
 	public function editNewsPost(){}
 	public function viewNews(){
 
-		
+		$tableId=2;
 
+		$build=new \MS\Core\Helper\Builder (__NAMESPACE__);
+		$build->title("View All News");
+	//	
+
+		$model=new Model($tableId);
+		$model=$model->paginate(5);
+	//	dd($model);
+
+		$diplayArray=[
+//'UniqId'=>'ID',
+
+'NewsTitle'=>'Title',
+
+
+//'NewsDate'=>'Date',
+
+'NewsDateExp'=>'Exp. Date',
+
+'NewsFileAttchments'=>'Files',
+
+
+'Status'=>'Live',
+
+		];
+
+
+
+		$build->listData($model)->listView($diplayArray)->btn([
+								'action'=>"\\B\\NM\\Controller@addNews",
+								'color'=>"btn-info",
+								'icon'=>"fa fa-plus",
+								'text'=>"Add News"
+							]);	
+
+		return $build->view(true,'list');
 
 	}
 	public function viewNewsbyId($UniqId){}

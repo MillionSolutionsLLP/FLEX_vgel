@@ -50,7 +50,7 @@
 
                         
 
-                        <li class="nav-item"><a class="nav-link link text-black display-4" href="{{action('\F\HM\Controller@index')}}"><span class="mbri-letter mbr-iconfont mbr-iconfont-btn"></span>Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link link text-black display-4" href="{{route('HM.ContactUs')}}"><span class="mbri-letter mbr-iconfont mbr-iconfont-btn"></span>Contact Us</a></li>
 
 
                     </ul>

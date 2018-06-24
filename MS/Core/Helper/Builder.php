@@ -11,16 +11,21 @@ class Builder{
 		$this->form_id="";
 		$this->form=0;
 		$this->index=0;
+		$this->listData="";
 		//$this->multiple=false;
 
 		
 
 	}
 
-	public $title,$content,$action,$btn,$namespace;
+	public $title,$content,$action,$btn,$namespace,$listView,$listData;
 
 	public static $layoutB ="B.L.Pages.Form_data";
 	public static $layoutF ="B.L.Pages.Form_data";
+
+	public static $layoutB_List="B.L.Pages.List_data_with_Paginate";
+	public static $layoutF_List="B.L.Pages.List_data_with_Paginate";
+
 	public function title($text){
 
 		$this->title=$text;
@@ -29,6 +34,23 @@ class Builder{
 
 		return $this;
 	}
+
+	public function listData($data){
+
+		$this->listData=$data;
+
+
+		return $this;
+	}
+
+		public function listView($data){
+
+		$this->listView=$data;
+
+		
+		return $this;
+	}
+
 
 	public function content($id,$data=[],$formdataArray=[]){
 
@@ -301,12 +323,16 @@ class Builder{
 	}
 	
 
-	public function view ($backend=false){
+	public function view ($backend=true,$type="form"){
 
 
 		// if($this->form_multiple)$this->content=$this->content.'<span ms-id="'.$this->form.'" class="btn btn-default btn-danger glyphicon glyphicon-remove pull-right RemoveSectionBtn"></span>';
 
-		$data=[
+
+
+switch ($type) {
+	case 'form':
+				$data=[
 
 			'form-title'=>$this->title,
 			'form-content'=>$this->content,//."</div>",
@@ -327,11 +353,72 @@ class Builder{
 		}
 
 		return view(self::$layoutF)->with('data',$data);
-	}
+	
+
+		break;
+
+
+	case 'list':
+
+
+		
+
+		$on1=0;
+		$cloumn=[];
+		foreach ($this->listData as $value) {
+		if(!$on1){
+			$cloumn =$value->getfillable();
+
+			$on1=1;
+		}
+		
+		}	
+			
+		
+		
+
+		$data=[
+
+			'List-title'=>$this->title,
+			'List-array'=>$this->listView,
+			'List-display'=>$cloumn,	
+			'List-Paginate'=>$this->listData,
+			'List-btn'=>$this->btn,
+			//."</div>",
+			
+			//"form-js"=>$this->js
+
+		];
 
 
 
 
+
+
+		//dd($data);
+		
+
+		if($backend){
+			//dd(view(self::$layoutB_List)->with('data',$data));
+			return view(self::$layoutB_List)->with('data',$data);
+		}
+
+		return view(self::$layoutB_List)->with('data',$data);
+	
+
+
+		break;
+
+	
+	default:
+		# code...
+		break;
+}
+
+
+
+
+}
 }
 
 ?>

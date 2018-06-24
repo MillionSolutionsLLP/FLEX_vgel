@@ -56,7 +56,7 @@ return [
 
         'NM' => [
             'driver' => 'local',
-            'root' => storage_path('app/NM'),
+            'root' => public_path('NM'),
             'url' => env('APP_URL').'/NM',
             'visibility' => 'public',
         ],

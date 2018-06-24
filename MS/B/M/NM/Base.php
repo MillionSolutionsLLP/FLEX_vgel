@@ -70,13 +70,13 @@ public static $routes=[
 
 						[
 						'name'=>'NM.viewNews',
-						'route'=>'/news/view}',
+						'route'=>'/news/view',
 						'method'=>'viewNews',
 						'type'=>'get',
 						],
 
 						[
-						'name'=>'NM.viewNews',
+						'name'=>'NM.viewNews.id',
 						'route'=>'/news/view/{UniqId}',
 						'method'=>'viewNewsbyId',
 						'type'=>'get',
@@ -97,7 +97,7 @@ public static $allOnSameconnection=true;
 ////////////////////////////////////////////////////////////////////////
 // Sub Module Start
 ////////////////////////////////////////////////////////////////////////
-public static $table="NM_News";
+public static $table="NM_News_diplay";
 
 public static $connection ="NM_Data";
 
@@ -151,6 +151,40 @@ public static $field1=[
 // Sub Module End
 ////////////////////////////////////////////////////////////////////////
 
+
+////////////////////////////////////////////////////////////////////////
+// Sub Module Start
+////////////////////////////////////////////////////////////////////////
+public static $table2="NM_News";
+
+public static $connection2 ="NM_Data";
+
+public static $tableStatus2=true;
+
+public static $field2=[
+['name'=>'UniqId','type'=>'string',],
+
+['name'=>'NewsTitle','type'=>'string',],
+
+['name'=>'NewsContent','type'=>'string',],
+
+['name'=>'NewsDate','type'=>'string',],
+
+['name'=>'NewsDateExp','type'=>'string',],
+
+['name'=>'NewsFileAttchments','type'=>'boolean',],
+
+['name'=>'NewsFileArray','type'=>'string',],
+
+['name'=>'Status','type'=>'boolean',],
+
+];
+
+
+
+////////////////////////////////////////////////////////////////////////
+// Sub Module End
+////////////////////////////////////////////////////////////////////////
 
 
 

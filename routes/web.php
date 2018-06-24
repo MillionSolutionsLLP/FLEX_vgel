@@ -22,4 +22,5 @@ return redirect()->action('\B\Panel\Controller@index');
 });
 
 
-Route::get('/', '\F\HM\Controller@index');
+
+  MS\Core\Helper\Comman::loadFront();

@@ -16,32 +16,6 @@ var input =parseInt($("[ms-input-count]").attr('ms-input-count'));
 
 
 
-$( ".btn-live-tab-action" ).click(function (){
-$( ".nav-second-level" ).removeClass( "in" );
-  $(".ms-live-tab").slideUp();
-    $(".ms-process-bar").css("width", "20%");
-    event.preventDefault();
-
-var link= $(this).attr('ms-live-tab-link');
-localStorage.LastPage = link;
-
-$(".ms-process-bar").css("width", "80%");
-
- $.get(link, function(data, status){
-        
-                $(".ms-live-tab").html(data);
-                
-
-                 $(".ms-live-tab").slideDown();
-                 $(".ms-process-bar").css("width", "100%");
-                  $(".ms-process-bar").css("width", "0%");
-    });
-
-
-
-});
-
-
 $( ".btn-frm-submit" ).click(function() {
     $( "form" ).submit();
 });

@@ -18,10 +18,9 @@
                 <div class="row">
 
                     <div class="ms-live-tab">
-                        <div class="">
-
+                     
                         @yield('Page-content')
-                        </div>
+                
                       
 
                     </div>

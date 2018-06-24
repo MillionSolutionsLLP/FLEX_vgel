@@ -24,7 +24,7 @@ class Controller extends \App\Http\Controllers\Controller
 	}
 
 
-	public function indexData(){
+	public function contactUs(){
 
 
 
@@ -34,7 +34,7 @@ class Controller extends \App\Http\Controllers\Controller
 			
 
 			];
-		return view('HM.V.Object.MasterDetails')->with('data',$data);
+		return view('HM.V.Pages.ContactUs')->with('data',$data);
 		
 		
 	}

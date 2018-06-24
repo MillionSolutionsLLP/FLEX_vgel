@@ -2,4 +2,4 @@
 
 
 
-\MS\Core\Helper\Comman::loadModuleRoute('B\HM');
+\MS\Core\Helper\Comman::loadModuleRoute('F\HM');

@@ -1,68 +1,157 @@
-<div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">{!!$data['List-title']!!}</h1>
 
-                    </div>
-                    <!-- /.col-lg-12 -->
-                </div>
-                <!-- /.row -->
-                <div class="row">
 
-                    <div class="col-lg-12 ">
-            				
-            			
 <?php
 $heading=[];
-//dd($data['List-Paginate']);
-foreach ($data['List-array'][0] as $key => $value) {
-	if (in_array($key,$data['List-disaplay'])) {
-		$heading[]=ucfirst($key);
-	}
-		
+$headingKey=[];
+//dd($data);
+
+if(count($data['List-array'])>0){
+
+
+
+
+  foreach ($data['List-array'] as $key => $value) {
+    
+    if(in_array($key, $data['List-display'])){
+
+      $heading[]=ucfirst($value);
+    $headingKey[]=$key;
+    }else{
+
+       $heading[]=ucfirst($value);
+
+    }
+    
+
+
+
+  }
+
+
+}else{
+
+  $heading=$data['List-display'];
+  $headingKey=$data['List-display'];
+
 }
 
 //dd($heading);
+
 ?>
+<div class="panel panel-default ">
+<div  class="panel-heading panel-info"><h5 class=""> <strong><i class="glyphicon glyphicon-chevron-right"></i> {{$data['List-title']}}
 
 
 
-  <!-- Default panel contents -->
+</strong>  
+</h5></div>
+  <div class="panel-body">
+  <div class="col-lg-12" style="margin-bottom: 5px;">
+    
+
+     <div class="btn-group">
+        
+      @foreach ($data['List-btn'] as $btn)
+      
+      @if(array_key_exists('action',$btn))
+
+      @if(array_key_exists('data',$btn))
+      
+      @if(array_key_exists('color',$btn))
+      {{ Form::button("<i class='".$btn["icon"]." ' aria-hidden='true'></i> ".$btn["text"], ['class'=>'btn   ms-mod-btn '.$btn['color'].' ms-text-black' , 'ms-live-link'=>action($btn["action"],$btn['data']),] ) }}
+      @else
+      {{ Form::button("<i class='".$btn["icon"]."' aria-hidden='true'></i> ".$btn["text"], ['class'=>'btn btn-info   ms-mod-btn'.' ms-text-black' , 'ms-live-link'=>action($btn["action"],$btn['data']),] ) }}
+      @endif
 
 
-  <!-- Table -->
-  <table class="table table-responsive table-bordered table-hover">
+      @else
+      
+      @if(array_key_exists('color',$btn))
+      {{ Form::button("<i class='".$btn["icon"]."' aria-hidden='true'></i> ".$btn["text"], ['class'=>'btn   ms-mod-btn '.$btn['color'].' ms-text-black' , 'ms-live-link'=>action($btn["action"]),] ) }}
+      @else
+      {{ Form::button("<i class='".$btn["icon"]."' aria-hidden='true'></i> ".$btn["text"], ['class'=>'btn btn-info   ms-mod-btn ms-text-black ' , 'ms-live-link'=>action($btn["action"]),] ) }}
+      @endif
+
+
+      @endif
+
+      
+      @else
+
+      @if(array_key_exists('color',$btn))
+      {{ Form::button("<i class='".$btn["icon"]."' aria-hidden='true'></i> ".$btn["text"], ['class'=>'btn  btn-frm-submit end-close '.$btn['color'].' ms-text-black'] ) }}
+      @else
+      {{ Form::button("<i class='".$btn["icon"]."' aria-hidden='true'></i> ".$btn["text"], ['class'=>'btn btn-success  btn-frm-submit ms-text-black'] ) }}
+      @endif
+      
+
+      @endif
+
+
+      @endforeach
+      </div>
+
+
+  </div>
+
+
+      <table class="table table-responsive table-bordered table-hover">
   <tr>
-  	@foreach ($heading as $head)
+  @foreach ($heading as $head)
     <th>{{ $head }}</th>
-	@endforeach
+  @endforeach
   </tr>
 <tbody>
+
+
   @foreach ($data['List-Paginate'] as $object)
+
   <tr>
-    @foreach ($data['List-disaplay'] as $key )
-      <td>{{$object->$key}}</td>
+   
+    @foreach($headingKey as $key)
+
+     <td>
+      @if((string)$object->$key ==  '0')
+
+
+      <i class="fa fa-times text-danger"></i>
+      @elseif((string )$object->$key ==  '1')
+
+
+      <i class="fa fa-check text-success"></i>
+
+
+      @else
+
+
+       {{ $object->$key }} 
+      @endif
+
+      </td>
+
+        
     @endforeach
+ 
+
   </tr>
   @endforeach
    </tbody>
-<!--   	@foreach ($data['List-array'] as $row)
-  	<tr>
-    	@foreach ($row as $key=>$row2)
-    	@if(in_array($key,$data['List-disaplay']))
-    	<td>{{$row2}}</td>
-    	@endif
-    	
-		
-		@endforeach
-		</tr>
-	@endforeach -->
+
   
   </table>
 
-{{ $data['List-Paginate']->links() }}
+  </div>
 
+  <div class="panel-footer">
+    
+
+
+{{ $data['List-Paginate']->links('Pages.Paginate') }}
+
+  </div>
 
 </div>
+
 
 <script type="text/javascript">
 
