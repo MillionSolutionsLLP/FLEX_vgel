@@ -39,4 +39,36 @@ class Controller extends \App\Http\Controllers\Controller
 		
 	}
 
+
+	public function aboutUs(){
+
+
+
+			$data=[
+
+			
+
+			];
+		return view('HM.V.Pages.AboutUs')->with('data',$data);
+
+	}
+
+
+	
+	public function news(){
+
+
+
+			$data=[
+
+			
+
+			];
+		return view('HM.V.Pages.AboutUs')->with('data',$data);
+
+	}
+
+
+
+
 }

@@ -7,6 +7,5 @@
   <script src="assets/parallax/jarallax.min.js"></script>
   <script src="assets/smoothscroll/smooth-scroll.js"></script>
   <script src="assets/theme/js/script.js"></script>
-
-    <script src="{{asset('js/app.js')}}"></script>
+  <script src="{{asset('js/app.js?v='. Carbon::now()->timestamp )}}"></script>
   

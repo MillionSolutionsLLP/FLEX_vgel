@@ -24,7 +24,7 @@ $line-height-base: 1.2;
 $text-color: #212121;
 
 // Navbar
-$navbar-default-bg:#F5F5F5;
+$navbar-default-bg:#90A4AE;
 
 // Buttons
 $btn-default-color: $text-color;
@@ -32,7 +32,7 @@ $btn-default-color: $text-color;
 // Inputs
 $input-border: lighten($text-color, 40%);
 $input-border-focus: lighten($brand-primary, 25%);
-$input-color-placeholder: lighten($text-color, 30%);
+$input-color-placeholder: lighten($text-color, 5%);
 
 // Panels
 //$panel-default-heading-bg: darken(#F5F5F5,3%);

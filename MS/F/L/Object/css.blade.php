@@ -6,6 +6,9 @@
   <link rel="stylesheet" href="assets/socicon/css/styles.css">
   <link rel="stylesheet" href="assets/dropdown/css/style.css">
   <link rel="stylesheet" href="assets/theme/css/style.css">
+
   <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-  <link rel="stylesheet" type="text/css" href="{{asset('css/app.css?nocahe=v1')}}">
+  
+  <link rel="stylesheet" type="text/css" href="{{asset('css/app.css?v='. Carbon::now()->timestamp )}}">
+
   <link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.min.css')}}">

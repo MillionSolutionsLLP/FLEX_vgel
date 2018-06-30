@@ -32,7 +32,7 @@ mix
  |--------------------------------------------------------------------------
  */
 
-.js('MS/Core/js/Frontend/app.js', 'public/js')
+//.js('MS/Core/js/Frontend/app.js', 'public/js')
 
 .sass('MS/Core/css/Frontend/app.scss', 'public/css');
  

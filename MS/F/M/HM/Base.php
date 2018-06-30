@@ -31,8 +31,22 @@ public static $routes=[
 
 							[
 						'name'=>'HM.ContactUs',
-						'route'=>'/ContactUs',
+						'route'=>'/contact-us',
 						'method'=>'contactUs',
+						'type'=>'get',
+						],
+
+						[
+						'name'=>'HM.AboutUs',
+						'route'=>'/about-us',
+						'method'=>'aboutUs',
+						'type'=>'get',
+						],
+
+						[
+						'name'=>'HM.News',
+						'route'=>'/news',
+						'method'=>'news',
 						'type'=>'get',
 						],
 					];

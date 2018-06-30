@@ -38,7 +38,7 @@
                     based on cooperative principles with corporate culture of management, was formed with an objective of providing a Comprehensive Environment Management Program (CEMP) for the estate.<br><br>VGEL set up a common solid waste management site in 1999 and in year 2000, commissioned first cell of Secured Landfill Constructed as per German Design based on asphalt-concrete base liners.&nbsp;<br><br>
                     We have installed end of the pipeline treatment facilities like common effluent treatment plant (CETP) and transport, storage, disposal facility for hazardous solid waste (TSDF) to control pollution levels and now focus is shifted to pollution abatement by adopting and promoting Cleaner Production, Cleaner Technology for Cleaner Development Mechanism.
                 </p>
-                <div class="mbr-section-btn"><a class="btn btn-md btn-primary display-4" href="{{action('\F\HM\Controller@index')}}">LEARN MORE</a></div>
+                <div class="mbr-section-btn"><a class="btn btn-md btn-primary display-4" href="{{route('HM.AboutUs')}}">LEARN MORE</a></div>
             </div>
 
   <div class=" col-md-2 visible-lg" style="position: fixed;top:90px;right:0px;float: right; ">
