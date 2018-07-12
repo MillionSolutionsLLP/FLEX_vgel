@@ -20,9 +20,9 @@ mix
  |--------------------------------------------------------------------------
  */
 
-//.js('MS/Core/js/Backend/app.js', 'public/js/backend') 
+.js('MS/Core/js/Backend/app.js', 'public/js/backend') //;
 
-  //.sass('MS/Core/css/Backend/app.scss', 'public/css/backend');
+  .sass('MS/Core/css/Backend/app.scss', 'public/css/backend');
  
 
 
@@ -34,5 +34,5 @@ mix
 
 //.js('MS/Core/js/Frontend/app.js', 'public/js')
 
-.sass('MS/Core/css/Frontend/app.scss', 'public/css');
+//.sass('MS/Core/css/Frontend/app.scss', 'public/css');
  

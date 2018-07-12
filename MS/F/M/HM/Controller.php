@@ -61,10 +61,10 @@ class Controller extends \App\Http\Controllers\Controller
 
 			$data=[
 
-			
+
 
 			];
-		return view('HM.V.Pages.AboutUs')->with('data',$data);
+		return view('HM.V.Pages.News')->with('data',$data);
 
 	}
 

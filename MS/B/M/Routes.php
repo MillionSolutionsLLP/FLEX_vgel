@@ -61,3 +61,4 @@ Route::prefix('MAS')->group(function () {
 Route::prefix('NM')->group(function () { \MS\Core\Helper\Comman::loadRoute('NM'); });
 Route::prefix('TM')->group(function () { \MS\Core\Helper\Comman::loadRoute('TM'); });
 Route::prefix('DM')->group(function () { \MS\Core\Helper\Comman::loadRoute('DM'); });
+Route::prefix('RM')->group(function () { \MS\Core\Helper\Comman::loadRoute('RM'); });

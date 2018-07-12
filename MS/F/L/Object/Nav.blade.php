@@ -2,7 +2,9 @@
 
     
 
-    <nav class="navbar navbar-expand beta-menu navbar-dropdown  navbar-fixed-top navbar-toggleable-sm bg-color">
+    <nav class="navbar navbar-expand beta-menu navbar-dropdown  navbar-fixed-top navbar-toggleable-sm bg-color" style="    border-width: 1px 0px 1px 0px;
+    border-style: solid hidden solid hidden;
+    border-color: #5d402e #2eb9ce #5d402e #2eb9ce;">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <div class="hamburger">
                 <span></span>
@@ -15,7 +17,7 @@
             <div class="navbar-brand">
                 <span class="navbar-logo">
                     <a href="{{action('\F\HM\Controller@index')}}">
-                         <img src="assets/images/icon-180x180.png" alt="Mobirise" title="" style="height: 3.8rem;">
+                         <img src="assets/images/icon-180x180.png" alt="Mobirise" title="" style="height: 6rem;">
                     </a>
                 </span>
                 <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-4" href="{{action('\F\HM\Controller@index')}}">

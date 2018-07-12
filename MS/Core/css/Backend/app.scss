@@ -1,7 +1,6 @@
 
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Rubik");
-
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
 // Variables
 @import "variables";
 
@@ -23,14 +22,14 @@ resize: vertical;
 
 
  .ms-btn-full-width-main{
-  
-  width:85%;
+  text-align:justify!important;
+  width:83%;
 
 }
 
  .ms-btn-full-width-side{
   
-  width:15%;
+  width:17%;
 
 }
 

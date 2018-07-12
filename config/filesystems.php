@@ -46,7 +46,7 @@ return [
         'MS-MASTER-CORE'=>[
 
             'driver' => 'local',
-            'root' => base_path('MS'),
+            'root' => base_path('/'),
         ],
 
         'local' => [

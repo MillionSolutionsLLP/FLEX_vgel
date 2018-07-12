@@ -249,6 +249,26 @@ var tab2 =$(this).attr('ms-js-target');
 /////////////////
 
 
+function setBreadcrumb(text){
+
+  var data=text.split("/");
+ // console.log(data);
+  var html="";
+
+  $( ".ms-breadcrumb" ).remove();
+  data.forEach(function(item, index){
+
+    html=html+'<li class="ms-breadcrumb">'+ item +'</li>';
+
+  });
+  
+
+
+  $(".ms-breadcrumb-end").after(html);
+
+}
+
+
 function loadingOn() {
   $(".in").removeClass("in");
  $(".loading").fadeIn( "slow", function() {
@@ -368,8 +388,9 @@ $("body").on("click",".ms-live-btn",function (){
 
 
 var link= $(this).attr('ms-live-link');
-
+var breadcrumb=$(this).attr('ms-breadcrumb');
     getMsLink(link);
+    setBreadcrumb(breadcrumb);
 
 });
 
