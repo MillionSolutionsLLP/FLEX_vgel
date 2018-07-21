@@ -2,12 +2,12 @@
                                             
 
 
-<div class="panel panel-default mt-3">
+<div class="panel panel-info mt-3">
 <div class="panel-heading"> <h5 class=" align-left pl-3 mbr-fonts-style display-5">
          Have a Question <i class="fa fa-question-circle-o" aria-hidden="true"></i>  Ask Us
             </h5>
 </div>
-<div class="panel-body">
+<div class="panel-body" >
 	
 
 	<form class="form-horizontal">

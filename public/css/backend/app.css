@@ -8392,7 +8392,6 @@ body {
 
 .ms-live-tab {
   margin-top: 68px;
-  display: -webkit-box;
 }
 
 .bg-pic {
@@ -8417,13 +8416,9 @@ body {
 
 .ms-live-btn,
 .ms-api-btn,
-.ms-mod-btn {
-  cursor: pointer;
-}
-
-.ms-live-btn,
-.ms-api-btn,
-.ms-mod-btn {
+.ms-mod-btn,
+.ms-file-download,
+.ms-row-f {
   cursor: pointer;
 }
 
@@ -8562,5 +8557,28 @@ body {
 
 .ms-text-black {
   color: #212121;
+}
+
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > a:focus,
+.pagination > .active > a {
+  color: #616161;
+}
+
+.pagination > li > span:hover {
+  color: #263238;
+  background-color: #01579B;
+}
+
+.label-default {
+  margin: 2px;
+  background-color: #d9edf7;
+  border-bottom: dotted 1px;
+  border-top: dotted 1px;
+}
+
+.label {
+  color: #777;
 }
 

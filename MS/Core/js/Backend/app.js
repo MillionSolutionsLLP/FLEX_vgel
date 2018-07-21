@@ -6,7 +6,7 @@ require('./bootstrap');
 
 $( document ).ready(function() {
   
-   
+     $('[data-toggle="tooltip"]').tooltip();
 setInterval(function(){
    var date = new Date();
    var currentTime = new Date ( );
@@ -53,6 +53,7 @@ var pub=0;
 var edit=0;
 var view=0;
 var add=0;
+var item=0;
 
 function getLinkFromShort(key){
 
@@ -74,8 +75,13 @@ event.preventDefault();
 //Key 1
 if(event.which == 49 ){
     
-    var link=getLinkFromShort('1');
-    getMsLink(link);
+
+    if(item==0){
+
+         var link=getLinkFromShort('1');
+          getMsLink(link);
+    }
+   
 
 
 }
@@ -83,8 +89,8 @@ if(event.which == 49 ){
 //Key 2
 if(event.which == 50 ){
     
-    var link=getLinkFromShort('2');
-    getMsLink(link);
+    if(item==0){var link=getLinkFromShort('2');
+        getMsLink(link);}
 
 
 }
@@ -93,8 +99,8 @@ if(event.which == 50 ){
 //Key 3
 if(event.which == 51 ){
     
-    var link=getLinkFromShort('3');
-    getMsLink(link);
+    if(item==0){var link=getLinkFromShort('3');
+            getMsLink(link);}
 
 
 }
@@ -102,8 +108,8 @@ if(event.which == 51 ){
 //Key 4
 if(event.which == 52 ){
     
-    var link=getLinkFromShort('4');
-    getMsLink(link);
+    if(item==0){var link=getLinkFromShort('4');
+            getMsLink(link);}
 
 
 }
@@ -111,8 +117,8 @@ if(event.which == 52 ){
 //Key 5
 if(event.which == 53 ){
     
-    var link=getLinkFromShort('5');
-    getMsLink(link);
+    if(item==0){var link=getLinkFromShort('5');
+        getMsLink(link);}
 
 
 }
@@ -155,6 +161,7 @@ if(event.which == 65 ){
     add=1;
     view=0;
     edit=0;
+    item=0;
 
 }
 
@@ -163,6 +170,19 @@ if(event.which == 65 ){
 if(event.which == 86 ){
   
     view=1;
+    add=0;
+    edit=0;
+    item=0;
+
+
+
+}
+
+//Key i
+if(event.which == 73 ){
+    
+    item=1;
+    view=0;
     add=0;
     edit=0;
 
@@ -185,6 +205,17 @@ if(add){
 
   }
 
+  ///key T
+    if(event.which == 84 ){
+  
+    add=0;
+
+    var link=getLinkFromShort('a+t');
+
+    getMsModLink(link);
+
+  }
+
 }
 
 
@@ -197,6 +228,110 @@ if(view){
     getMsModLink(link);
 
   }
+
+
+  ///key T
+    if(event.which == 84 ){
+  
+    view=0;
+
+    var link=getLinkFromShort('v+t');
+
+    getMsModLink(link);
+
+  }
+
+
+
+}
+
+
+if(item){
+
+
+  if(event.which == 48 ){
+  
+    item=0;
+    var link=getLinkFromShort('i+0');
+    getMsModLink(link);
+
+  }
+
+
+  if(event.which == 49 ){
+  
+    item=0;
+    var link=getLinkFromShort('i+1');
+    getMsModLink(link);
+
+  }
+
+
+  if(event.which == 50 ){
+  
+    item=0;
+    var link=getLinkFromShort('i+2');
+    getMsModLink(link);
+
+  }
+
+  if(event.which == 51 ){
+  
+    item=0;
+    var link=getLinkFromShort('i+3');
+    getMsModLink(link);
+
+  }
+
+  if(event.which == 52 ){
+  
+    item=0;
+    var link=getLinkFromShort('i+4');
+    getMsModLink(link);
+
+  }
+
+  if(event.which == 53 ){
+  
+    item=0;
+    var link=getLinkFromShort('i+5');
+    getMsModLink(link);
+
+  }
+
+  if(event.which == 54 ){
+  
+    item=0;
+    var link=getLinkFromShort('i+6');
+    getMsModLink(link);
+
+  }
+
+  if(event.which == 55 ){
+  
+    item=0;
+    var link=getLinkFromShort('i+7');
+    getMsModLink(link);
+
+  }
+
+  if(event.which == 56 ){
+  
+    item=0;
+    var link=getLinkFromShort('i+8');
+    getMsModLink(link);
+
+  }
+
+  if(event.which == 57 ){
+  
+    item=0;
+    var link=getLinkFromShort('i+9');
+    getMsModLink(link);
+
+  }
+
+
 
 
 
@@ -480,3 +615,13 @@ var link= $('.ms-form').attr('action');
             }, 'json');
 });
 
+$("body").on("click",".ms-file-download",function (e){
+
+//alert('row clicked');
+var url=$(this).attr('ms-link');
+
+window.open(url, '_blank'); 
+//window.location.href = url;
+
+
+});

@@ -11,13 +11,13 @@
 
 @section('content')
 
-<section class="cid-qTkA127IK8 mbr-fullscreen mbr-parallax-background" id="header2-1" x>
+<section class="cid-qTkA127IK8 mbr-fullscreen mbr-parallax-background" >
 
     
 <!-- 
     <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(255, 255, 255);"></div>
  -->
-    <div class="container-fluid ">
+    <div class="container-fluid " style="min-height: 65vh;">
         <div class="row ">
 
      

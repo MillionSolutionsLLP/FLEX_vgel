@@ -23,7 +23,10 @@ class editUser extends FormRequest
      * @return array
      */
     public function rules()
-    {
+    {   
+
+
+
          return [
             'UniqId'=>"required",
      

@@ -82,6 +82,14 @@ public static $routes=[
 						'type'=>'get',
 						],
 
+						[
+						'name'=>'NM.deleteNews',
+						'route'=>'/news/delete/{UniqId}',
+						'method'=>'deleteNews',
+						'type'=>'get',
+						],
+
+
 					];
 
 public static $tableNo="0";
@@ -243,7 +251,12 @@ public static  function genFormData($edit=false,$data=[],$id=false){
 
 		$model=new Model($id);
 		
-		//dd($model);
+		//dd(gettype($data));
+
+		if(gettype($data) == 'object')$data=$data->toArray();
+
+
+
 
 		$v=$model->where(array_keys($data)[0],$data[array_keys($data)[0]])->first();
 

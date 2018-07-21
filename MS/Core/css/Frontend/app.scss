@@ -11,6 +11,19 @@
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 
+.cid-qTkzRZLJNu .nav-item a{
+  
+
+  align-items: left; 
+  justify-content: left;
+}
+
+.cid-qTkzRZLJNu .navbar-toggleable-sm .navbar-collapse {
+  
+
+  width:100%;
+}
+
 .ms-btn-full-width{
   
   width:100%;
@@ -105,17 +118,14 @@ body{
 
 
 
-.ms-live-btn, .ms-api-btn,.ms-mod-btn{
+.ms-live-btn, .ms-api-btn,.ms-mod-btn,.ms-file-download,.ms-row-f{
 cursor:pointer;
 
 }
 
 
 
-.ms-live-btn, .ms-api-btn,.ms-mod-btn{
-cursor:pointer;
-  
-}
+
 
 
 
@@ -170,6 +180,33 @@ cursor:pointer;
 
     }
 
+
+
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+
+    @import "xs";
+    } 
+
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+    @import "sm";
+    } 
+
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) {
+    @import "md";
+    } 
+
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) {
+    @import "md";
+    } 
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1200px) {
+    @import "lg";
+    }
 
 .ms-text-black{
   

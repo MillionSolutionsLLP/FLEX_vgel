@@ -64,14 +64,14 @@ return [
 
         'TM' => [
             'driver' => 'local',
-            'root' => storage_path('app/TM'),
+            'root' => public_path('TM'),
             'url' => env('APP_URL').'/TM',
             'visibility' => 'public',
         ],
 
         'DM' => [
             'driver' => 'local',
-            'root' => storage_path('app/DM'),
+            'root' => public_path('DM'),
             'url' => env('APP_URL').'/DM',
             'visibility' => 'public',
         ],

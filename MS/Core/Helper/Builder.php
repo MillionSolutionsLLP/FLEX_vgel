@@ -12,6 +12,7 @@ class Builder{
 		$this->form=0;
 		$this->index=0;
 		$this->listData="";
+		$this->listAction=[];
 		//$this->multiple=false;
 
 		
@@ -43,11 +44,11 @@ class Builder{
 		return $this;
 	}
 
-		public function listView($data){
+	public function listView($data){
 
 		$this->listView=$data;
 
-		
+		//dd($this->listView);
 		return $this;
 	}
 
@@ -321,6 +322,28 @@ class Builder{
 
 
 	}
+
+
+
+	public function addListAction($data){
+
+
+
+
+
+		if(array_key_exists('add',$data))$this->listAction['add-btn']=$data['add'];
+		if(array_key_exists('edit',$data))$this->listAction['edit-btn']=$data['edit'];
+		if(array_key_exists('delete',$data))$this->listAction['delete-btn']=$data['delete'];
+
+
+if(array_key_exists('view',$data))$this->listAction['view-btn']=$data['view'];
+
+
+
+		return $this;
+
+
+	}
 	
 
 	public function view ($backend=true,$type="form"){
@@ -365,7 +388,10 @@ switch ($type) {
 
 		$on1=0;
 		$cloumn=[];
+
 		foreach ($this->listData as $value) {
+
+
 		if(!$on1){
 			$cloumn =$value->getfillable();
 
@@ -373,7 +399,8 @@ switch ($type) {
 		}
 		
 		}	
-			
+		
+	//	dd($value);			
 		
 		
 
@@ -384,6 +411,7 @@ switch ($type) {
 			'List-display'=>$cloumn,	
 			'List-Paginate'=>$this->listData,
 			'List-btn'=>$this->btn,
+			'List-action'=>$this->listAction
 			//."</div>",
 			
 			//"form-js"=>$this->js

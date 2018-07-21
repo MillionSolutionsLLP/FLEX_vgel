@@ -28,13 +28,72 @@ public static $routes=[
 						'method'=>'index',
 						'type'=>'get',
 						],
+
+						[
+						'name'=>'TM.indexData',
+						'route'=>'/data',
+						'method'=>'indexData',
+						'type'=>'get',
+						],
+
+						[
+						'name'=>'TM.addTender',
+						'route'=>'/tender/add',
+						'method'=>'addTender',
+						'type'=>'get',
+						],
+
+
+						[
+						'name'=>'TM.addTenderPost',
+						'route'=>'/tender/add',
+						'method'=>'addTenderPost',
+						'type'=>'post',
+						],
+
+
+						[
+						'name'=>'TM.editTender',
+						'route'=>'/tender/edit/{UniqId}',
+						'method'=>'editTender',
+						'type'=>'get',
+						],
+
+
+						[
+						'name'=>'TM.editTenderPost',
+						'route'=>'/tender/edit',
+						'method'=>'editTenderPost',
+						'type'=>'post',
+						],
+
+						[
+						'name'=>'TM.viewTender',
+						'route'=>'/tender/view',
+						'method'=>'viewTender',
+						'type'=>'get',
+						],
+
+						[
+						'name'=>'TM.viewTender.id',
+						'route'=>'/tender/view/{UniqId}',
+						'method'=>'viewTenderbyId',
+						'type'=>'get',
+						],
+
+						[
+						'name'=>'TM.deleteTender',
+						'route'=>'/tender/delete/{UniqId}',
+						'method'=>'deleteTender',
+						'type'=>'get',
+						],
 					];
 
 public static $tableNo="0";
 
 
 
-public static $connection ="MSDBC";
+//public static $connection ="MSDBC";
 
 public static $allOnSameconnection=true;
 
@@ -43,15 +102,50 @@ public static $allOnSameconnection=true;
 ////////////////////////////////////////////////////////////////////////
 // Sub Module Start
 ////////////////////////////////////////////////////////////////////////
-public static $table="TM";
+public static $table="TM_News_diplay";
 
-public static $connection1 ="IM_Data";
+public static $connection ="TM_Data";
+
+public static $tableStatus=false;
+
+public static $field=[
+['name'=>'UniqId','type'=>'string','input'=>'auto','callback'=>'genUniqID',],
+
+['name'=>'TenderTitle','vName'=>'Title','type'=>'string','input'=>'text'],
+
+['name'=>'TenderContent','vName'=>'Content','type'=>'string','input'=>'textarea'],
+
+['name'=>'TenderDate','vName'=>'Publish From','type'=>'string','input'=>'date','callback'=>'currentDate'],
+
+['name'=>'TenderDateExp','vName'=>'to','type'=>'string','input'=>'date','callback'=>'currentDateEnd'],
+
+['name'=>'Status','type'=>'boolean','input'=>'radio','default'=>'status'],
+
+];
+
+////////////////////////////////////////////////////////////////////////
+// Sub Module End
+////////////////////////////////////////////////////////////////////////
+
+
+
+
+////////////////////////////////////////////////////////////////////////
+// Sub Module Start
+////////////////////////////////////////////////////////////////////////
+
+public static $table1="TM_Tender_File";
+
+public static $connection1 ="TM_Data";
 
 public static $tableStatus1=false;
 
-public static $field=[
-['name'=>'UniqId','type'=>'string','input'=>'auto','value'=>'genUniqID','default'=>'genUniqID',],
-['name'=>'Status','type'=>'boolean','input'=>'radio','value'=>'status','default'=>'status'],
+public static $field1=[
+
+
+
+['name'=>'Attachments','vName'=>'Title','type'=>'string','input'=>'file'],
+
 
 ];
 
@@ -62,6 +156,40 @@ public static $field=[
 ////////////////////////////////////////////////////////////////////////
 
 
+
+////////////////////////////////////////////////////////////////////////
+// Sub Module Start
+////////////////////////////////////////////////////////////////////////
+public static $table2="TM_Tender";
+
+public static $connection2 ="TM_Data";
+
+public static $tableStatus2=true;
+
+public static $field2=[
+['name'=>'UniqId','type'=>'string',],
+
+['name'=>'TenderTitle','type'=>'string',],
+
+['name'=>'TenderContent','type'=>'string',],
+
+['name'=>'TenderDate','type'=>'string',],
+
+['name'=>'TenderDateExp','type'=>'string',],
+
+['name'=>'TenderFileAttchments','type'=>'boolean',],
+
+['name'=>'TenderFileArray','type'=>'string',],
+
+['name'=>'Status','type'=>'boolean',],
+
+];
+
+
+
+////////////////////////////////////////////////////////////////////////
+// Sub Module End
+////////////////////////////////////////////////////////////////////////
 
 
 
@@ -79,6 +207,18 @@ public static function status(){
 	return [
 	'Hide','Publish'
 	];
+}
+
+
+public static function currentDate(){
+
+	return \Carbon::now()->toDateString();
+	//dd(\Carbon::now()->addYear()->toDateString() );
+
+}
+
+public static function currentDateEnd(){
+	return \Carbon::now()->addYear()->toDateString() ;
 }
 
 
@@ -106,6 +246,10 @@ public static  function genFormData($edit=false,$data=[],$id=false){
 		$model=new Model($id);
 		
 		//dd($model);
+			
+		if(gettype($data) == 'object')$data=$data->toArray();
+
+
 
 		$v=$model->where(array_keys($data)[0],$data[array_keys($data)[0]])->first();
 

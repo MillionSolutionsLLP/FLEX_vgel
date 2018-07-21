@@ -39,12 +39,18 @@ if(count($data['List-array'])>0){
 
 ?>
 <div class="panel panel-default ">
+
+
+  @isset($data['List-title'])
+ 
 <div  class="panel-heading panel-info"><h5 class=""> <strong><i class="glyphicon glyphicon-chevron-right"></i> {{$data['List-title']}}
 
 
 
 </strong>  
 </h5></div>
+
+@endisset
   <div class="panel-body">
   <div class="col-lg-12" style="margin-bottom: 5px;">
     
@@ -95,22 +101,56 @@ if(count($data['List-array'])>0){
   </div>
 
 
+
+</div>
       <table class="table table-responsive table-bordered table-hover">
   <tr>
+     <th class="text-right">Shortcut<br><span class="label label-default">alt +  I + { 1,2,.. }</span></th>
+
   @foreach ($heading as $head)
     <th>{{ $head }}</th>
   @endforeach
+
+      @if(array_key_exists('delete-btn',$data['List-action']) or array_key_exists('edit-btn',$data['List-action']))
+
+
+ <th>Action</th>
+
+    @endif
   </tr>
 <tbody>
 
 
   @foreach ($data['List-Paginate'] as $object)
+   @if(array_key_exists('view-btn',$data['List-action']))
+  
 
-  <tr>
-   
+  @if($loop->iteration < 10)
+
+
+  <tr class="ms-mod-btn" ms-live-link="{{ route($data['List-action']['view-btn']['method'],\MS\Core\Helper\Comman::en4url($object->$data['List-action']['view-btn']['key'])) }}"      ms-shortcut="i+{{$loop->iteration }}" > 
+  
+    @elseif($loop->iteration == 10)
+
+  <tr class="ms-mod-btn" ms-live-link="{{ route($data['List-action']['view-btn']['method'],\MS\Core\Helper\Comman::en4url($object->$data['List-action']['view-btn']['key'])) }}"      ms-shortcut="i+0" > 
+  
+
+    @else
+  <tr class="ms-mod-btn" ms-live-link="{{ route($data['List-action']['view-btn']['method'],\MS\Core\Helper\Comman::en4url($object->$data['List-action']['view-btn']['key'])) }}"     > 
+
+    @endif
+   @else
+   <tr>
+
+  @endif
+
+
+ <td class="text-right">{{$loop->iteration}}</td>
+  <?php // dd($headingKey);?>
     @foreach($headingKey as $key)
 
      <td>
+
       @if((string)$object->$key ==  '0')
 
 
@@ -131,6 +171,26 @@ if(count($data['List-array'])>0){
 
         
     @endforeach
+
+
+    @if(array_key_exists('edit-btn',$data['List-action']) or array_key_exists('delete-btn',$data['List-action']))
+
+    <td>
+
+
+      <div class="btn-group btn-group-xs " role="group" aria-label="...">
+        @if(array_key_exists('edit-btn',$data['List-action']))
+        <button type="button" class="btn  ms-text-black btn-success ms-mod-btn" ms-live-link="{{route($data['List-action']['edit-btn']['method'],\MS\Core\Helper\Comman::en4url($object->$data['List-action']['edit-btn']['key']))}}"><i class="fa fa-pencil "></i></button>
+        @endif
+        @if(array_key_exists('delete-btn',$data['List-action']))
+        <button type="button" class="btn btn-danger ms-text-black ms-mod-btn" ms-live-link="{{route($data['List-action']['delete-btn']['method'],\MS\Core\Helper\Comman::en4url($object->$data['List-action']['delete-btn']['key']))}}"><i class="fa fa-trash"></i></button>
+        @endif
+
+
+      </div>
+
+    </td>
+    @endif
  
 
   </tr>
@@ -140,7 +200,6 @@ if(count($data['List-array'])>0){
   
   </table>
 
-  </div>
 
   <div class="panel-footer">
     

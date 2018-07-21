@@ -17,7 +17,7 @@
             <div class="col-12 col-md-3">
                 <div class="media-wrap">
                     <a href="{{action('\F\HM\Controller@index')}}">
-                        <img src="assets/images/logo-1-999x165.jpg" alt="Mobirise" title="">
+                        <img src="{{asset('assets/images/logo-1-999x165.jpg')}}" alt="Mobirise" title="">
                        <p class="mbr-text">
                         {{$company['NameOfBussiness']}}
                         <br><small>CIN: {{$company['CinNo']}}</small>
@@ -84,7 +84,7 @@
                     © {{ Carbon::now()->year - 1  }} - {{ Carbon::now()->year }} Copyright {{$company['NameOfBussiness']}} All Rights Reserved.
                 </div>
                 <div class="col-sm-6 mbr-white  mbr-fonts-style display-7  ms-xs-sm-text-right ms-xs-sm-text-center">
-                   MS-Flex ™ Solution Provided by <a href="https:/www.millionsllp.com" target="_blank"> Million Solutions LLP</a> 
+                   <a href="https://www.millionsllp.com/product/ms-flex" target="_blank"> MS-Flex ™ Tier-I Solution</a> Provided by <a href="https:/www.millionsllp.com" target="_blank"> Million Solutions LLP</a> 
                 </div>
 
             </div>

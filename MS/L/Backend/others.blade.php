@@ -29,3 +29,5 @@
 <meta property="og:image" content="http://millionsllp.com/images/logo.png" />
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
+
+  <link rel="shortcut icon" href="{{asset('assets/images/icon-180x180.png')}}" type="image/x-icon">

@@ -146,11 +146,14 @@ class Controller extends \App\Http\Controllers\Controller
 
 	public function deleteProductRentSlab($UniqId){
 
+			$UniqId=\MS\Core\Helper\Comman::de4url($UniqId);
 			$status=200;
 			$tableId=2;
-			$rData=['UniqId'=>\MS\Core\Helper\Comman::de4url($UniqId)];
+			$rData=['UniqId'=>$UniqId];
 			$model=new Model($tableId);
 			$model->MS_delete($rData,$tableId);	
+
+	
 			return  $this->indexData();
 
 	}

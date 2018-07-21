@@ -17,7 +17,7 @@
             <div class="navbar-brand">
                 <span class="navbar-logo">
                     <a href="{{action('\F\HM\Controller@index')}}">
-                         <img src="assets/images/icon-180x180.png" alt="Mobirise" title="" style="height: 6rem;">
+                         <img src="{{asset('assets/images/icon-180x180.png')}}" alt="Mobirise" title="" style="height: 6rem;">
                     </a>
                 </span>
                 <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-4" href="{{action('\F\HM\Controller@index')}}">
@@ -41,13 +41,13 @@
                 <li class="nav-item"><a class="nav-link link text-black display-4" href="{{route('HM.News')}}"><span class="mbri-help mbr-iconfont mbr-iconfont-btn"></span>
                         News</a></li>
 
-                        <li class="nav-item"><a class="nav-link link text-black display-4" href="{{action('\F\HM\Controller@index')}}"><span class="mbri-bookmark mbr-iconfont mbr-iconfont-btn"></span>
+                        <li class="nav-item"><a class="nav-link link text-black display-4" href="{{route('HM.Tenders')}}"><span class="mbri-bookmark mbr-iconfont mbr-iconfont-btn"></span>
                         Tenders</a></li>
 
-                        <li class="nav-item"><a class="nav-link link text-black display-4" href="{{action('\F\HM\Controller@index')}}"><span class="mbri-photos mbr-iconfont mbr-iconfont-btn"></span>Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link link text-black display-4" href="{{route('HM.Gallery')}}"><span class="mbri-photos mbr-iconfont mbr-iconfont-btn"></span>Gallery</a></li>
 
                         
-                        <li class="nav-item"><a class="nav-link link text-black display-4" href="{{action('\F\HM\Controller@index')}}"><span class="socicon socicon-telegram mbr-iconfont mbr-iconfont-btn"></span>
+                        <li class="nav-item"><a class="nav-link link text-black display-4" href="{{route('HM.Careers')}}"><span class="socicon socicon-telegram mbr-iconfont mbr-iconfont-btn"></span>
                         Careers</a></li>
 
                         

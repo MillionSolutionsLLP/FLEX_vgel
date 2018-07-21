@@ -24,8 +24,15 @@ class AddNews extends FormRequest
      */
     public function rules()
     {
+
+
+            $id=2;
+            $conection=\B\NM\Base::getConnection($id);
+            $table=\B\NM\Base::getTable($id);
+            $key='UniqId';
+            $rules="unique:".$conection.".".$table.",".$key;
          return [
-            'UniqId'=>"required",
+            'UniqId'=>"required|".$rules,
             'NewsTitle'=>"required",
             'NewsContent'=>"required",
             'NewsDate'=>"required",

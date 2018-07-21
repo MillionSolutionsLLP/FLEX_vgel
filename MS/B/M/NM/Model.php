@@ -75,7 +75,7 @@ protected $base_Field;
         //dd($row); 
         $row->delete();
 
-        return ['status'=>'200','msg'=>"Data Succesfully removed from MSDB."];
+        return ['status'=>'200','msg'=>"Data Succesfully removed from Satabase."];
     }
 
 
@@ -129,7 +129,7 @@ protected $base_Field;
           //  $data['AttachmentsArray']="array";
            // if(!(array_key_exists('Attachments', $data)))$data['Attachments']="array";
              if(array_key_exists('_token', $data))unset($data['_token']);
-             if(array_key_exists('UniqId', $data))$data['UniqId']=Base::genUniqID();
+             if(!array_key_exists('UniqId', $data))$data['UniqId']=Base::genUniqID();
         foreach ($data as $key => $value) {
             $row->$key=$value;
             

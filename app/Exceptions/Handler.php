@@ -32,6 +32,8 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
+
+
         parent::report($exception);
     }
 
@@ -43,7 +45,34 @@ class Handler extends ExceptionHandler
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $exception)
-    {
+    {       
+
+
+        
+      
+
+         // if(!\Route::has($request->getRequestUri())){
+         // //   dd(explode('/',$request->getRequestUri()));
+         //    $key=explode('/',$request->getRequestUri())[1];
+         //    //dd($key);
+         //    $array=[
+         //        'assets',
+         //    ];
+
+         //    if(array_key_exists($key, $array))
+         //    {
+         //        return parent::render($request, $exception);
+         //    }else{
+
+         //             return response()->view('errors.404');         
+         //    }
+
+            
+           
+
+         // }
+
+
         return parent::render($request, $exception);
     }
 

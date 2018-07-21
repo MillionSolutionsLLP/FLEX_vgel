@@ -11,7 +11,7 @@
 
 @section('content')
 
-<section class="cid-qTkA127IK8 mbr-fullscreen mbr-parallax-background" id="header2-1" style="padding-top: 77px;">
+<section class="cid-qTkA127IK8 mbr-fullscreen mbr-parallax-background" id="header2-1" >
 
     
 <!-- 

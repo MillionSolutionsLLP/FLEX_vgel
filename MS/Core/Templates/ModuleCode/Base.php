@@ -106,6 +106,11 @@ public static  function genFormData($edit=false,$data=[],$id=false){
 		$model=new Model($id);
 		
 		//dd($model);
+		
+		if(gettype($data) == 'object')$data=$data->toArray();
+
+
+		
 
 		$v=$model->where(array_keys($data)[0],$data[array_keys($data)[0]])->first();
 

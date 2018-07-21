@@ -49,7 +49,41 @@ public static $routes=[
 						'method'=>'news',
 						'type'=>'get',
 						],
+
+						[
+						'name'=>'HM.News.View',
+						'route'=>'/news/v/{enUniqId}',
+						'method'=>'newsById',
+						'type'=>'get',
+						],
+
+
+						[
+						'name'=>'HM.Tenders',
+						'route'=>'/tenders',
+						'method'=>'tenders',
+						'type'=>'get',
+						],
+					
+
+						[
+						'name'=>'HM.Gallery',
+						'route'=>'/gallery',
+						'method'=>'gallery',
+						'type'=>'get',
+						],
+					
+						[
+						'name'=>'HM.Careers',
+						'route'=>'/careers',
+						'method'=>'careers',
+						'type'=>'get',
+						],
+					
+
+
 					];
+
 
 public static $tableNo="0";
 

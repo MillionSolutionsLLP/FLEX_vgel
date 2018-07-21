@@ -23,9 +23,9 @@ protected $base_Field;
         }else
         {
 
-            $this->table=Base::getTable();
-            $this->connection=Base::getConnection();
-            $this->base_Field=Base::getField();
+            $this->table=Base::getTable(2);
+            $this->connection=Base::getConnection(2);
+            $this->base_Field=Base::getField(2);
 
         }
         

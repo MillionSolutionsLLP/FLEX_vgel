@@ -11,19 +11,27 @@
 
 @section('content')
  
-<section class="cid-qVVubXL42B tabs4 mbr-fullscreen mbr-parallax-background" id="tabs4-b" style="padding-top: 77px;padding-bottom: 20px;background-position: 50% 50%; background-size: 100%; background-repeat: no-repeat; background-image: url({{asset('images/bg.png')}}); ">
+<section class="cid-qVVubXL42B tabs4 mbr-fullscreen mbr-parallax-background" id="tabs4-b" style="padding-bottom: 20px;background-position: 50% 50%; background-size: 100%; background-repeat: no-repeat; background-image: url({{asset('assets/images/photo-38883-20150623-2000x1279.jpg')}}); ">
  
   <div class="container" style="">
        
 
             <div class="media-container-row mt-5 pt-3">
-                <div class="mbr-figure col-md-7" >
-                    <img src="{{ asset('images/contact-us.png') }}" alt="Mobirise" title="">
+               
+                <div class="tabs-container col-md-12 ms-border" style="background-color: white;min-height: 80vh;">
+                     <h3 class="mbr-section-title align-left pb-3 mbr-fonts-style display-2">
+   <div class="mbr-figure col-md-4  " style="padding-top: 40px;">
+                    <img  src="{{ asset('images/contact-us.png') }}" alt="Mobirise" title="">
+                
+                <div class="row" style="margin-top: -10px; padding-left: 8px;">
+                    <div class="col-md-12 pb-5">Welcome to</div>
+                <div class="col-md-3">  <img  src="{{asset('assets/images/logo-1-999x165.jpg')}}" alt="Mobirise" title=""></div>
+                <div class="col-md-9" style="    font-size: 2.4rem;"> <b>{{$company['NameOfBussiness']}}</b></div>
+                      
+                 </div>      
                 </div>
-                <div class="tabs-container col-md-7" style="background-color: #E0E0E0;">
-                     <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">
-         Welcome to,<br>{{$company['NameOfBussiness']}}
-            </h2>
+        
+            </h3>
                     <ul class="nav nav-tabs" role="tablist" style="padding-top: 10px;">
                         <li class="nav-item align-center"><a class="nav-link mbr-fonts-style display-5 active show" role="tab" data-toggle="tab" href="#tabs4-b_tab0" aria-selected="true">
                                 <i class="fa fa-question-circle-o" aria-hidden="true"></i> <br> Make a Inquiry

@@ -17,7 +17,7 @@
 <!-- 
     <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(255, 255, 255);"></div>
  -->
-    <div class="container-fluid align-center">
+    <div class="container-fluid align-center"  style="min-height: 75vh;">
         <div class="row ">
 
                  <!-- <div class=" col-md-3 visible-lg" style="position: fixed;left:0;top:90px;right:0; "> -->
