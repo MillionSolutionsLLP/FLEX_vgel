@@ -90,8 +90,35 @@ class Controller extends \App\Http\Controllers\Controller
 
 	public function tenders(){
 
+						$data=[
+
+
+
+			];
+		return view('HM.V.Pages.Tender')->with('data',$data);
 
 			return view('errors.503');
+
+	}
+
+
+
+	public function tenderById($enUniqId){
+
+		$uniqId=\MS\Core\Helper\Comman::de4url($enUniqId);
+		//$uniqId=$enUniqId;
+		$id=0;
+		$m=New \B\TM\Model();
+
+		if($m->where('UniqId',$uniqId)->first()!=null){$newsData=$m->where('UniqId',$uniqId)->first()->toArray();}
+		else{$newsData=[];}
+		$data=[
+
+			'tender'=>$newsData
+		];
+		return view('HM.V.Object.TenderDetail')->with('data',$data);
+		//dd($m->where('UniqId',$uniqId)->first()->toArray());
+
 
 	}
 

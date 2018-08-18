@@ -6,5 +6,5 @@
 @endsection
 
 @section('Page-breadcrumb')
-<li class="active ms-breadcrumb "></li>
+
 @endsection

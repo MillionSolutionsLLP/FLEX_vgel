@@ -29,7 +29,7 @@ if($news->MS_all() != null)$news=$news->where('Status',1)->get()->sortByDesc(fun
 
 
 @if(array_key_exists('detailed', $data))
-	<div class="panel-body" >
+	<div class="panel-body"  >
 	<table class="table table-striped table-hover" style="color:black;">
 
 		<tr class="info">
@@ -49,7 +49,7 @@ if($news->MS_all() != null)$news=$news->where('Status',1)->get()->sortByDesc(fun
 		 		
 
 
-		 <tr class="ms-row-f" ms-link="{{  route('HM.News.View',['UniqId'=>\MS\Core\Helper\Comman::en4url($value['UniqId'])]) }}">
+		 <tr class="ms-row-f" ms-link="{{  route('HM.News.View',['enUniqId'=>\MS\Core\Helper\Comman::en4url($value['UniqId'])]) }}">
 		 		
 				 		<td class="text-capitalize">
 
@@ -65,7 +65,7 @@ if($news->MS_all() != null)$news=$news->where('Status',1)->get()->sortByDesc(fun
 		@else
 
 
-		 <tr class="ms-row-f" ms-link="{{  route('HM.News.View',['UniqId'=>\MS\Core\Helper\Comman::en4url($value['UniqId'])]) }}">
+		 <tr class="ms-row-f" >
 		 		
 				 		<td class="text-capitalize">
 No Data available
@@ -91,6 +91,8 @@ No Data available
   <button type="button" class="list-group-item ms-row-f" ms-link="{{  route('HM.News.View',['UniqId'=>\MS\Core\Helper\Comman::en4url($value['UniqId'])]) }}" style="text-align: justify;"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{$value['NewsTitle']}}</button>
 
 @endforeach
+
+
 @else
 
 

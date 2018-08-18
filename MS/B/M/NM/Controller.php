@@ -275,6 +275,8 @@ class Controller extends \App\Http\Controllers\Controller
 
 		$uniqId=\MS\Core\Helper\Comman::de4url($UniqId);
 		//$uniqId=$enUniqId;
+
+		
 		$id=0;
 		$m=New \B\NM\Model();
 

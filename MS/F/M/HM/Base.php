@@ -64,7 +64,18 @@ public static $routes=[
 						'method'=>'tenders',
 						'type'=>'get',
 						],
+
+
+						[
+						'name'=>'HM.Tenders.View',
+						'route'=>'/tenders/v/{enUniqId}',
+						'method'=>'tenderById',
+						'type'=>'get',
+						],
 					
+
+
+
 
 						[
 						'name'=>'HM.Gallery',

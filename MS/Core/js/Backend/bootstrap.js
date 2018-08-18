@@ -38,9 +38,7 @@ if (token) {
 }
 
 
-// require("babel-core").transform("code", {
-//   plugins: ["transform-object-rest-spread"]
-// });
+
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

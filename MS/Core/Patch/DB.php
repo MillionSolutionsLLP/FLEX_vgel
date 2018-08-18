@@ -16,7 +16,9 @@ public $modules=[
 'MAS',
 'NM',
 'TM',
-'DM'
+'DM',
+'BM',
+'PM'
 
 ];
 
